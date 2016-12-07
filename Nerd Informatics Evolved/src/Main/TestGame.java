@@ -40,7 +40,7 @@ public class TestGame {
 	
 		System.out.println(Rex1.paaren(Rex2));
 		
-		Raptor1.paaren(Raptor1);
+		System.out.println(Raptor1.paaren(Raptor1));
 		
 		System.out.println(Bronto1.paaren(Dodo1));
 
@@ -55,26 +55,28 @@ public class TestGame {
 		System.out.println(Rex1.toString());
 		
 		//Menschen tests
-        Sammler sammler = new Sammler();
-		Jaeger jaeger = new Jaeger();
+        Sammler sammler = new Sammler("Bob");
+		Jaeger jaeger = new Jaeger("Alrik");
 
 		sammler.reiten(Bronto1);
 		jaeger.reiten(Rex1);
 		sammler.reiten(Rex1);
 		
-		//zustand aender ???
+		//zustand aendern ???
 		Mensch.zustandAendern(0);
 		Mensch.zustandAendern(0);
 		System.out.println(sammler.toString());
 	
 		//Stamm test
-		Stamm stamm1= new Stamm();
-		Stamm stamm2= new Stamm();
+		Stamm stamm1= new Stamm("Stamm1");
+		Stamm stamm2= new Stamm("stamm2");
 		
-		/*
+		
 		stamm1.mitgliedHinzufuegen(jaeger);
 		stamm1.mitgliedHinzufuegen(jaeger);
 		stamm2.mitgliedHinzufuegen(jaeger);
+		
+		System.out.println(jaeger.toString());
 		
 		stamm1.ausStammEntlassen(jaeger);
 		stamm1.ausStammEntlassen(jaeger);
@@ -88,7 +90,7 @@ public class TestGame {
 		stamm1.verwildern(Rex2);
 		stamm1.verwildern(Rex2);
 		stamm2.verwildern(Raptor2);
-		*/
+		
 		
 		
 	}

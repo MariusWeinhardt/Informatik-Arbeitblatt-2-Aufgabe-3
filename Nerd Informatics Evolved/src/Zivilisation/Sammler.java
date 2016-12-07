@@ -8,8 +8,10 @@ public class Sammler extends Mensch {
 	/**
 	 * 
 	 */
-	public Sammler() {
-		super();
+	public Sammler(String name) {
+		super(name);
+		setleben(25);
+		setAlter(20);
 	}
 
 	/* (non-Javadoc)
@@ -17,13 +19,14 @@ public class Sammler extends Mensch {
 	 */
 	@Override
 	public void reiten(Dinosaurier dino) {
-		// TODO Auto-generated method stub
 		if(dino instanceof Pflanzenfresser){
-			this.reittier=dino;
-			System.out.println("Reitet "+reittier);
+			setReittier(dino);
+			//testAusgaben
+			//System.out.println("Reitet "+reittier);
 		}
 		else{
-			System.out.println("Nicht möglich");
+			//Test Ausgabe
+			//System.out.println("Nicht möglich");
 		}
 	}
 

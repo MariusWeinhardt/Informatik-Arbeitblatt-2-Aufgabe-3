@@ -9,8 +9,6 @@ public abstract class Pflanzenfresser extends Dinosaurier {
 	 */
 	Pflanzenfresser() {
 		super();
-
-		// TODO Auto-generated constructor stub
 	}
 
 	/**

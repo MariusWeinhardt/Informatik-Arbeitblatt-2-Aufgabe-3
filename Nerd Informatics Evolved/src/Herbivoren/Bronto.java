@@ -23,7 +23,6 @@ public class Bronto extends Pflanzenfresser {
 	 */
 	@Override
 	public boolean equals(Object ziel) {
-		// try catch
 		if (ziel.getClass() != getClass()) {
 			return false;
 		}
@@ -37,7 +36,6 @@ public class Bronto extends Pflanzenfresser {
 	 */
 	@Override
 	public String giblaut() {
-		// TODO Auto-generated method stub
 		return "Duuuh…";
 	}
 
@@ -46,9 +44,8 @@ public class Bronto extends Pflanzenfresser {
 	 */
 	@Override
 	public Dinosaurier paaren(Dinosaurier partner) {
-		if (partner.getID() % 2 != getID() % 2 && (this.equals(partner))) {// art
-	//try catch 																		// abfrage
-																			// ?
+		if (partner.getID() % 2 != getID() % 2 && (this.equals(partner))&&partner.getID()!=getID()) {
+
 
 			return new Bronto();
 		} else {

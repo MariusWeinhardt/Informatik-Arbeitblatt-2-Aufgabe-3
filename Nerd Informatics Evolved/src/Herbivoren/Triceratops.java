@@ -40,7 +40,7 @@ public class Triceratops extends Pflanzenfresser {
 	 */
 	@Override
 	public Dinosaurier paaren(Dinosaurier partner) {
-		if (partner.getID() % 2 != getID() % 2 && this.equals(partner)) {// art
+		if (partner.getID() % 2 != getID() % 2 && this.equals(partner)&&partner.getID()!=getID()) {// art
 																			// abfrage
 																			// ?
 

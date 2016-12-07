@@ -8,8 +8,10 @@ public class Jaeger extends Mensch {
 	/**
 	 * 
 	 */
-	public Jaeger() {
-		super();
+	public Jaeger(String name) {
+		super(name);
+		setleben(50);
+		setAlter(20);
 	}
 
 	/* (non-Javadoc)
@@ -17,13 +19,14 @@ public class Jaeger extends Mensch {
 	 */
 	@Override
 	public void reiten(Dinosaurier dino) {
-		// TODO Auto-generated method stub
 		if(dino instanceof Fleischfresser){
-			this.reittier=dino;
-			System.out.println("Reitet "+reittier);
+			setReittier(dino);
+			//test
+			//System.out.println("Reitet "+getReittier());
 		}
 		else{
-			System.out.println("Nicht möglich");
+			//test
+			//System.out.println("Nicht möglich");
 		}
 	}
 

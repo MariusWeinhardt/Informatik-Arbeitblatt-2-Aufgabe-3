@@ -5,10 +5,13 @@ public class Ressource {
 	int anzahl;
 
 	/**
+	 * @param i 
+	 * @param string 
 	 * 
 	 */
-	Ressource() {
-
+	Ressource(String name, int anzahl) {
+			this.name=name;
+			this.anzahl=anzahl;
 	}
 
 	/**
@@ -38,5 +41,11 @@ public class Ressource {
 	void setname(String name) {
 		this.name = name;
 	}
+	
+	public String toString(){
+		return "Ressource: "+name+" Anzahl: "+anzahl;
+		
+	}
+	
 
 }

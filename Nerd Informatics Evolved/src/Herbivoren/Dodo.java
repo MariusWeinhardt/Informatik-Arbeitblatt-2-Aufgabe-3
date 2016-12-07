@@ -40,15 +40,15 @@ public class Dodo extends Pflanzenfresser {
 	 */
 	@Override
 	public Dinosaurier paaren(Dinosaurier partner) {
-		// TODO Auto-generated method stub
 		// abfrage partner haben anderes geschlecht und gleicher art
-		if (partner.getID() % 2 != getID() % 2 && this.equals(partner)) {// art
+		if (partner.getID() % 2 != getID() % 2 && this.equals(partner)&&partner.getID()!=getID()) {// art
 																			// abfrage
 																			// ?
 
 			return new Dodo();
 		} else {
-			// try catch fehlerausgabe
+			// try catch fehlerausgabe 
+			
 			return null;
 		}
 	}
@@ -57,7 +57,6 @@ public class Dodo extends Pflanzenfresser {
 	 * @param ziel
 	 */
 	public void picken(Object ziel) {
-		// TODO Auto-generated method stub
 		action(ziel, 0, 0);
 	}
 

@@ -8,23 +8,52 @@ import Karnivoren.Fleischfresser;
 public abstract class Mensch {
 	/**
 	 * 
-	 */
-	static int zustand;
+	 *///????zustand zustand aendern ?????
+	private	static int zustand;
 	public static void zustandAendern(int neuerZustand) {
 		System.out.println("Zustand andern");
 	}
 	
-	String name;
-	int leben;
-	int alter;
-	Stamm stamm;
-	Dinosaurier reittier;
+	private	String name;
+	private	int leben;
+	private	int alter;
+	//Setter getter ??
+	
+	public int getAlter() {
+		return alter;
+	}
+
+	public void setAlter(int alter) {
+		this.alter = alter;
+	}
+
+	private	Stamm stamm;
+	
+	public Stamm getStamm() {
+		return stamm;
+	}
+
+	public void setStamm(Stamm stamm) {
+		this.stamm = stamm;
+	}
+
+	public Dinosaurier getReittier() {
+		return reittier;
+	}
+
+	public void setReittier(Dinosaurier reittier) {
+		this.reittier = reittier;
+	}
+
+	private	Dinosaurier reittier;
 
 	/**
 	 * 
 	 */
-	Mensch() {
-		System.out.println("Mensch konstruktor");
+	Mensch(String name) {
+		this.name=name;
+		//test
+		//System.out.println("Mensch konstruktor");
 	}
 
 	/**
@@ -67,7 +96,6 @@ public abstract class Mensch {
 	 * @return
 	 */
 	public int getleben() {
-		// TODO Auto-generated method stub
 		return leben;
 	}
 
@@ -80,7 +108,6 @@ public abstract class Mensch {
 	 * @param leben
 	 */
 	public void setleben(int leben) {
-		// TODO Auto-generated method stub
 		this.leben = leben;
 	}
 	
@@ -88,6 +115,6 @@ public abstract class Mensch {
 	 * @see java.lang.Object#toString()
 	 */
 	public String toString(){
-		return "Name: "+name+" Leben: "+leben+" Alter: "+alter+" Stamm: "+stamm+"Reittier: "+reittier;
+		return "Name: "+name+" Leben: "+leben+" Alter: "+alter+" Stamm: "+stamm+" Reittier: "+reittier.getClass()+" "+reittier;
 	}
 }
