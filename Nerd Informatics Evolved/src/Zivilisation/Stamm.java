@@ -34,16 +34,12 @@ public class Stamm {
 		//setter getter Mensch ???
 		if(mensch.getStamm()==null && mitglieder[9]==null){
 			System.out.println("Mitglied Hinzufügen");
-			//über schleifen und if verzweigungen ???
-			for(int zähler=0;zähler<10;zähler++){
-			
-				if(mitglieder[zähler]!=null){
-				 mitglieder[zähler]=mensch;
-				 //this anscheined  null ?
-				 mensch.setStamm(this);
-				 zähler=10;
-				}
+			int zähler=0;
+			while(mitglieder[zähler]!=null){
+				 zähler++;
 			}
+			 mitglieder[zähler]=mensch;
+			 mensch.setStamm(this);
 		}
 	}
 /**
@@ -86,17 +82,17 @@ public class Stamm {
 		//array voll zugriff auf stam  ?? //this = null ????????
 				if(dino.getStamm()==null && dinos[9]==null){
 					System.out.println("zaehmen");
-					for(int zähler=0;zähler<10;zähler++){
-						
-						if(dinos[zähler]!=null){
-							dinos[zähler]=dino;
-							dino.setStamm(this);
-							zähler=10;
+					if(dino.getStamm()==null && dinos[9]==null){
+						System.out.println("Mitglied Hinzufügen");
+						int zähler=0;
+						while(dinos[zähler]!=null){
+							 zähler++;
 						}
+						 dinos[zähler]=dino;
+						 dino.setStamm(this);
+				
+				} 
 					}
-					
-				}
-			
 	}
 	
 	/**
@@ -106,10 +102,18 @@ public class Stamm {
 		//??? Nutzen ?????
 	Ressource[] ressourcen=new Ressource[10];
 	
-	ressourcen[0]=new Ressource("Stein",1);
+	ressourcen[0]=new Ressource("Stein",0);
+	ressourcen[1]=new Ressource("Metall",0);
+	ressourcen[2]=new Ressource("Holz",0);
+	ressourcen[3]=new Ressource("Obsidian",0);
+	ressourcen[4]=new Ressource("Kristall",0);
+	ressourcen[5]=new Ressource("Fleisch",0);
+	ressourcen[6]=new Ressource("Chitin",0);
+	ressourcen[7]=new Ressource("oel",0);
+	ressourcen[8]=new Ressource("Perlen",0);
+	ressourcen[9]=new Ressource("Pelze",0);
+	ressourcen[10]=new Ressource("Weizen",0);
 	
-		
-		
 	}
 	
 }

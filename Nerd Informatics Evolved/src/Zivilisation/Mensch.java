@@ -52,6 +52,7 @@ public abstract class Mensch {
 	 */
 	Mensch(String name) {
 		this.name=name;
+		stamm=null;
 		//test
 		//System.out.println("Mensch konstruktor");
 	}
@@ -72,6 +73,7 @@ public abstract class Mensch {
 
 			if (ziel instanceof Ressource) {
 				((Ressource) ziel).setanzahl(((Ressource) ziel).getanzahl() + (1*1));
+				//verwalteRessourcen();
 			
 
 		}

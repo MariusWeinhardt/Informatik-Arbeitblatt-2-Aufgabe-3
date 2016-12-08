@@ -67,6 +67,7 @@ public abstract class Dinosaurier {
 
 		if (Ziel instanceof Ressource) {
 			((Ressource) Ziel).setanzahl(((Ressource) Ziel).getanzahl() + (getstaerke() * harvestMult));
+			//verwalteRessourcen();
 		} else {
 
 			

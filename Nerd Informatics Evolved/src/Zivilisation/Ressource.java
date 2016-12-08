@@ -9,7 +9,7 @@ public class Ressource {
 	 * @param string 
 	 * 
 	 */
-	Ressource(String name, int anzahl) {
+	public Ressource(String name, int anzahl) {
 			this.name=name;
 			this.anzahl=anzahl;
 	}
