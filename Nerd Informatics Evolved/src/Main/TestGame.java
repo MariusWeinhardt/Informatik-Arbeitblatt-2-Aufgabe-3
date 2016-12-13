@@ -30,17 +30,16 @@ public class TestGame {
 		Raptor Raptor2 = new Raptor();
 		Rex Rex2 = new Rex();
 
-		Ressource Stein = new Ressource("Stein",0);
-		Ressource Fleisch = new Ressource("Fleisch",0);
-		Ressource Metall = new Ressource("Metall",0);
-		Ressource Holz = new Ressource("Holz",0);
-		Ressource Obsidian = new Ressource("Obsidian",0);
-		Ressource Kristall = new Ressource("Kristall",0);
-		Ressource Chitin = new Ressource("Chitin",0);
-		Ressource oel = new Ressource("Oel",0);
-		Ressource Perlen = new Ressource("Perlen",0);
-		Ressource Pelze = new Ressource("Pelze",0);
-		Ressource Weizen = new Ressource("Weizen",0);
+		Ressource Stein = new Ressource("Stein",100);
+		Ressource Fleisch = new Ressource("Fleisch",100);
+		Ressource Metall = new Ressource("Metall",100);
+		Ressource Holz = new Ressource("Holz",100);
+		Ressource Obsidian = new Ressource("Obsidian",100);
+		Ressource Kristall = new Ressource("Kristall",100);
+		Ressource Chitin = new Ressource("Chitin",100);
+		Ressource oel = new Ressource("Oel",100);
+		Ressource Perlen = new Ressource("Perlen",100);
+		Ressource Pelze = new Ressource("Pelze",100);
 		
 		Stamm stamm1= new Stamm("New Kids");
 		Stamm stamm2= new Stamm("Old Kids");
@@ -101,9 +100,12 @@ public class TestGame {
 		stamm1.verwildern(Rex2);
 		stamm2.verwildern(Raptor2);
 		
+		stamm2.zaehmen(Rex1);
+		
 		//ressourcen test
 		Bronto1.stossen(Stein);
-		Rex1.angreifen(Weizen);
+		Rex1.angreifen(Pelze);
+		
 		
 	}
 

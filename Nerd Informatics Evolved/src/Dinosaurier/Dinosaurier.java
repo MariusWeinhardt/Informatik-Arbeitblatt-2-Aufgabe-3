@@ -9,7 +9,6 @@ import Zivilisation.Stamm;
  *
  */
 
-//Fertig !!!
 /**
  * 
  * Dinosaurier ist eine abstrakte klasse die für die erstellung der objekte der Sub klassen im Packet Herbivoren und Karnivoren veratntwortlich ist
@@ -23,10 +22,19 @@ public abstract class Dinosaurier {
 	private int staerke;
 	private Stamm stamm;
 
+	
+	/**
+	 * Gibt den stamm züruck
+	 * @return stamm
+	 */
 	public Stamm getStamm() {
 		return stamm;
 	}
 
+	/**
+	 * setzt denn stamm auf den übergebenden parameter
+	 * @param stamm übergebener wert 
+	 */
 	public void setStamm(Stamm stamm) {
 		this.stamm = stamm;
 	}
@@ -57,7 +65,6 @@ public abstract class Dinosaurier {
 	protected void action(Object Ziel, int dmgMult, int harvestMult) {
 		
 		if (Ziel instanceof Dinosaurier) {
-
 			((Dinosaurier) Ziel).setleben(((Dinosaurier) Ziel).getleben() - (getstaerke() * dmgMult));
 		}
 
@@ -66,14 +73,23 @@ public abstract class Dinosaurier {
 		}
 
 		if (Ziel instanceof Ressource) {
-			((Ressource) Ziel).setanzahl(((Ressource) Ziel).getanzahl() + (getstaerke() * harvestMult));
-			//verwalteRessourcen();
-		} else {
-
+			
+			((Ressource) Ziel).setanzahl(((Ressource) Ziel).getanzahl() - (getstaerke() * harvestMult));
+			//try catch für nullpointerexception
+			try{
+			this.getStamm().verwalteRessourcen((Ressource) Ziel,(getstaerke() * harvestMult));
+			}catch(NullPointerException e){
+				System.out.println("Der Dinosaurer hat keinen Stamm und kann deshalb keine Ressourcen sammeln");
+			}
 			
 		}
+			
+		} 
 
-	}
+			
+		
+
+	
 
 	/**
 	 * Gibt die ID des Objektes zurück

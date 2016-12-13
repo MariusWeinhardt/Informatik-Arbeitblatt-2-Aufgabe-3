@@ -15,6 +15,14 @@ public abstract class Mensch {
 	}
 	
 	private	String name;
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	private	int leben;
 	private	int alter;
 	//Setter getter ??
@@ -113,10 +121,5 @@ public abstract class Mensch {
 		this.leben = leben;
 	}
 	
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
-	public String toString(){
-		return "Name: "+name+" Leben: "+leben+" Alter: "+alter+" Stamm: "+stamm+" Reittier: "+reittier.getClass()+" "+reittier;
-	}
+
 }

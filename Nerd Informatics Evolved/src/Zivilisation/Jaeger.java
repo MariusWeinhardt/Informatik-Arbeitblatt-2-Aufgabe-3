@@ -30,4 +30,17 @@ public class Jaeger extends Mensch {
 		}
 	}
 
+	@Override
+	public boolean equals(Object ziel) {
+		if (ziel.getClass() != getClass()) {
+			return false;
+		}
+
+		return true;
+
+	}
+	@Override
+	public String toString(){
+		return "Name: "+getName()+" Leben: "+getleben()+" Alter: "+getAlter()+" Stamm: "+getStamm()+" Reittier: "+getReittier().getClass()+" "+getReittier();
+	}
 }

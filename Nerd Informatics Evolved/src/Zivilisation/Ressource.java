@@ -41,11 +41,22 @@ public class Ressource {
 	void setname(String name) {
 		this.name = name;
 	}
-	
+
+	@Override
 	public String toString(){
 		return "Ressource: "+name+" Anzahl: "+anzahl;
 		
 	}
 	
+	@Override
+	public boolean equals(Object ziel) {
+		if (ziel.getClass() != getClass()) {
+			return false;
+		}
 
+		return true;
+
+	}
+	
+	
 }

@@ -35,7 +35,6 @@ public class Rex extends Fleischfresser {
 	 */
 	@Override
 	public String giblaut() {
-		// TODO Auto-generated method stub
 		return "ROOAAR!!!";
 	}
 
@@ -44,12 +43,10 @@ public class Rex extends Fleischfresser {
 	 */
 	@Override
 	public Dinosaurier paaren(Dinosaurier partner) {
-		if (partner.getID() % 2 != getID() % 2 && this.equals(partner)&&partner.getID()!=getID()) {// art
-																			// abfrage
-																			// ?
-
+		if (partner.getID() % 2 != getID() % 2 && this.equals(partner)&&partner.getID()!=getID()) {
+																			
 			return new Rex();
-		} else {
+		} else {//throws exception
 
 			return null;
 		}
