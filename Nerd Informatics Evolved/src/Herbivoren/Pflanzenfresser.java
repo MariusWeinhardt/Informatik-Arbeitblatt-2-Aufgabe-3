@@ -1,27 +1,26 @@
 package Herbivoren;
 
 import Dinosaurier.Dinosaurier;
-import Exceptions.AnzahlZuKlein;
+import Exceptions.AnzahlZuKleinException;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class Pflanzenfresser.
+ *Die Klasse Pflanzenfresser.
  */
 public abstract class Pflanzenfresser extends Dinosaurier {
 
 	/**
-	 * Instantiates a new pflanzenfresser.
+	 * Instanziert einen Neuen Pflanzenfresser
 	 */
 	Pflanzenfresser() {
 	}
 
 	/**
-	 * Stossen.
+	 * action-Methode stossen() von Pflanzenfresser
 	 *
-	 * @param Ziel the ziel
+	 * @param Ziel das Ziel 
 	 * @throws AnzahlZuKlein 
 	 */
-	public void stossen(Object Ziel) throws AnzahlZuKlein {
+	public void stossen(Object Ziel) throws AnzahlZuKleinException {
 		action(Ziel, 1, 2);
 
 	}

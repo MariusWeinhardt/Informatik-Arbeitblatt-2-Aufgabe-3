@@ -1,17 +1,17 @@
 package Karnivoren;
 
 import Dinosaurier.Dinosaurier;
-import Exceptions.AndereArt;
-import Exceptions.GleicherDinosaurier;
+import Exceptions.AndereArtException;
+import Exceptions.GleicherDinosaurierException;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class Raptor.
+ * Die Klasse Raptor
  */
 public class Raptor extends Fleischfresser {
 
 	/**
-	 * Instantiates a new raptor.
+	 * Instanziert einen Neuen Raptor mit Stärke 6 und leben 40
 	 */
 	public Raptor() {
 		setstaerke(6);
@@ -45,17 +45,17 @@ public class Raptor extends Fleischfresser {
 	 * @see Dinosaurier.Dinosaurier#paaren(Dinosaurier.Dinosaurier)
 	 */
 	@Override
-	public Dinosaurier paaren(Dinosaurier partner) throws GleicherDinosaurier,AndereArt {
+	public Dinosaurier paaren(Dinosaurier partner) throws GleicherDinosaurierException,AndereArtException {
 		if (partner.getID() % 2 != getID() % 2 && this.equals(partner)) {
 																		
 
 			return new Raptor();
 		}
 			if(partner.getID()==getID()){
-				throw new GleicherDinosaurier();
+				throw new GleicherDinosaurierException();
 			}
 			else{
-				throw new AndereArt();
+				throw new AndereArtException();
 			}
 	}
 

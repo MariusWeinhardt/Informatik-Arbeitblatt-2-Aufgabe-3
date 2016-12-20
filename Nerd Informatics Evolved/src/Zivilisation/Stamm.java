@@ -1,11 +1,11 @@
 package Zivilisation;
 
 import Dinosaurier.Dinosaurier;
-import Exceptions.AnzahlZuKlein;
-import Exceptions.ArrayistLeer;
-import Exceptions.ArrayistVoll;
-import Exceptions.NameZuKurz;
+import Exceptions.AnzahlZuKleinException;
+import Exceptions.ArrayistLeerException;
+import Exceptions.ArrayistVollException;
 // TODO: Auto-generated Javadoc
+import Exceptions.NameZuKurzException;
 
 /**
  * The Class Stamm.
@@ -22,7 +22,9 @@ public class Stamm {
 
 	/** The namen. */
 	String namen;
-	Ressource[] ressourcen=new Ressource[10];
+	
+	/** The ressourcen. */
+	private Ressource[] ressourcen=new Ressource[10];
 	/** The mitglieder. */
 	private Mensch[] mitglieder = new Mensch[10];
 	
@@ -33,24 +35,26 @@ public class Stamm {
 	 * Instantiates a new stamm.
 	 *
 	 * @param namen the namen
+	 * @throws NameZuKurz the name zu kurz
 	 */
-	public Stamm(String namen)throws NameZuKurz {
+	public Stamm(String namen)throws NameZuKurzException {
 		if(namen.length() >=2)
 		this.namen=namen;
 		else
-			throw new NameZuKurz();
+			throw new NameZuKurzException();
 	}
 	
 	/**
 	 * Aus stamm entlassen.
 	 *
 	 * @param mensch the mensch
+	 * @throws ArrayistLeer the arrayist leer
 	 */
 		//try catch wenn mensch nicht im array vorkommt
-		public void ausStammEntlassen(Mensch mensch) throws ArrayistLeer{
+		public void ausStammEntlassen(Mensch mensch) throws ArrayistLeerException{
 			int zähler=0;
 			if(mitglieder==null)
-				throw new ArrayistLeer();
+				throw new ArrayistLeerException();
 			
 			try{
 			System.out.println("Entlassen");
@@ -93,10 +97,11 @@ public String getNamen() {
  * mitglied Hinzufügen fügt in das bergebene objekte in das array ein.
  *
  * @param mensch das übergebende objekt wird in das array mitglieder aufgenommen
+ * @throws ArrayistVoll the arrayist voll
  */
-	public void mitgliedHinzufuegen(Mensch mensch)  throws ArrayistVoll{
+	public void mitgliedHinzufuegen(Mensch mensch)  throws ArrayistVollException{
 		if (mitglieder[mitglieder.length-1]!=null)
-			throw new ArrayistVoll();
+			throw new ArrayistVollException();
 			
 		
 		
@@ -113,9 +118,9 @@ public String getNamen() {
 	}
 
 /**
- * Sets the namen.
+ * Setzt den namen.
  *
- * @param namen the new namen
+ * @param namen der neue name
  */
 private void setNamen(String namen) {
 
@@ -128,18 +133,14 @@ private void setNamen(String namen) {
 	 */
 	@Override
 	public String toString(){
-//		int zähler=0;
-//	    String ressourcenstring= "" ,mitgliederstring= "" ,Dinosaurierstring ="";
-//		while(ressourcen[zähler]!=null){
-//		ressourcenstring=ressourcenstring+" "+ressourcen[zähler].getname()+" "+ressourcen[zähler].getanzahl(); 
-//		zähler++;
-//	    } 
-//	    
-//		ressourcenstring=ressourcenstring+" "+ressourcen[0].getname()+" "+ressourcen[0].getanzahl(); 
-//		
-//		return "Stamm: "+getNamen()+" Mitglieder "+mitgliederstring+" Dinosaurier "+Dinosaurierstring+" Ressourcen : "+ressourcenstring;
-	return "Stamm : "+getNamen()+" Mitglieder : ";
-	}
+	
+		return "Stamm : "+getNamen()+" Ressourcen: "+ressourcen[0];
+	
+
+
+	
+}
+	
 	
 	
 	
@@ -149,9 +150,9 @@ private void setNamen(String namen) {
 	 *
 	 * @param ressource the ressource
 	 * @param anzahl the anzahl
-	 * @throws AnzahlZuKlein 
+	 * @throws AnzahlZuKlein the anzahl zu klein
 	 */
-	public void verwalteRessourcen(Ressource ressource,int anzahl) throws AnzahlZuKlein{
+	public void verwalteRessourcen(Ressource ressource,int anzahl) throws AnzahlZuKleinException{
 	int zähler=0;
 //null pointer exception da er auf getname der ressource zugreift die man noch nicht erstellt hat
 	try{
@@ -176,6 +177,7 @@ private void setNamen(String namen) {
 		 }
 		 ressourcen[zähler]=new Ressource(ressource.getname(),anzahl);
 	 }
+		System.out.println(ressourcen[0]);
 	
    }
 	
@@ -183,12 +185,13 @@ private void setNamen(String namen) {
 	 * Verwildern.
 	 *
 	 * @param dino the dino
+	 * @throws ArrayistLeer the arrayist leer
 	 */
 	//exception wenn dino nicht im array vorkommt
-		public void verwildern(Dinosaurier dino) throws ArrayistLeer {
+		public void verwildern(Dinosaurier dino) throws ArrayistLeerException {
 			int zähler=0;
 			if(dinos==null)
-				throw new ArrayistLeer();
+				throw new ArrayistLeerException();
 			try{
 				System.out.println("verwildern");
 			while(dinos[zähler]!=dino){
@@ -208,11 +211,12 @@ private void setNamen(String namen) {
 	 * Zaehmen.
 	 *
 	 * @param dino the dino
+	 * @throws ArrayistVoll the arrayist voll
 	 */
-	public void zaehmen(Dinosaurier dino) throws ArrayistVoll {
+	public void zaehmen(Dinosaurier dino) throws ArrayistVollException {
 		
 		if(dinos[dinos.length-1]!=null){
-			throw new ArrayistVoll();
+			throw new ArrayistVollException();
 		}
 			
 		if(dino.getStamm()==null){
