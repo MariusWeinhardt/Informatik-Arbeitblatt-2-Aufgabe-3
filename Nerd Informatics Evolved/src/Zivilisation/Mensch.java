@@ -1,33 +1,16 @@
 package Zivilisation;
 
 import Dinosaurier.Dinosaurier;
-import Exceptions.AnzahlZuKlein;
-import Exceptions.NameZuKurz;
+import Exceptions.AnzahlZuKleinException;
+import Exceptions.NameZuKurzException;
 import Herbivoren.Dodo;
 import Herbivoren.Pflanzenfresser;
 import Karnivoren.Fleischfresser;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class Mensch.
+ * Die Klasse Mensch
  */
 public abstract class Mensch {
-	
-	/** The zustand. *///????zustand zustand aendern ?????
-	private	static int zustand;
-	
-	/**
-	 * Zustand aendern.
-	 *
-	 * @param neuerZustand the neuer zustand
-	 */
-	public static void zustandAendern(int neuerZustand) {
-		Mensch.zustand=neuerZustand;
-		System.out.println("Zustand andern"+zustand);
-	
-	}
-	
-	
 	
 	/** The name. */
 	private	String name;
@@ -46,26 +29,28 @@ public abstract class Mensch {
 	private	Dinosaurier reittier;
 	
 	/**
-	 * Instantiates a new mensch.
+	 * Instanziiert einen neuen Mensch.
 	 *
 	 * @param name the name
+	 * @throws NameZuKurz the name zu kurz
 	 */
-	Mensch(String name) throws NameZuKurz {
+	Mensch(String name) throws NameZuKurzException {
 		stamm=null;
 		
 		if(name.length() >=2)
 		this.name=name;
 		else
-			throw new NameZuKurz();
+			throw new NameZuKurzException();
 	}
 
 	/**
-	 * Action.
+	 * Action handler für die Unter Klassen
+	 * je nach Ziel führt die Methode andere Berechnungen durch.
 	 *
 	 * @param ziel the ziel
-	 * @throws AnzahlZuKlein 
+	 * @throws AnzahlZuKlein the anzahl zu klein
 	 */
-	void action(Object ziel) throws AnzahlZuKlein {
+	void action(Object ziel) throws AnzahlZuKleinException {
 		if(reittier==null){
 			if (ziel instanceof Dinosaurier) {
 
@@ -101,7 +86,7 @@ public abstract class Mensch {
 	}
 
 	/**
-	 * Gets the alter.
+	 * gibt das alter zurück.
 	 *
 	 * @return the alter
 	 */
@@ -110,7 +95,7 @@ public abstract class Mensch {
 	}
 	
 	/**
-	 * Gets the leben.
+	 * gibt das leben zurück.
 	 *
 	 * @return the leben
 	 */
@@ -119,7 +104,7 @@ public abstract class Mensch {
 	}
 
 	/**
-	 * Gets the name.
+	 * Git den namen zurück.
 	 *
 	 * @return the name
 	 */
@@ -128,7 +113,7 @@ public abstract class Mensch {
 	}
 
 	/**
-	 * Gets the reittier.
+	 * gibt das Reittier zurück.
 	 *
 	 * @return the reittier
 	 */
@@ -137,7 +122,7 @@ public abstract class Mensch {
 	}
 
 	/**
-	 * Gets the stamm.
+	 * Gibt den stamm zurück
 	 *
 	 * @return the stamm
 	 */
@@ -146,14 +131,14 @@ public abstract class Mensch {
 	}
 
 	/**
-	 * Reiten.
+	 * Reiten stellt eine kentniss beziehung zwischen mensch und dinosaurier her
 	 *
 	 * @param dino the dino
 	 */
 	abstract void reiten(Dinosaurier dino);
 
 	/**
-	 * Sets the alter.
+	 * setzt das Alter
 	 *
 	 * @param alter the new alter
 	 */
@@ -162,7 +147,7 @@ public abstract class Mensch {
 	}
 
 	/**
-	 * Sets the leben.
+	 * Setzt dsa Leben
 	 *
 	 * @param leben the new leben
 	 */
@@ -171,7 +156,7 @@ public abstract class Mensch {
 	}
 	
 	/**
-	 * Sets the name.
+	 * Setzt den Namen
 	 *
 	 * @param name the new name
 	 */
@@ -180,7 +165,7 @@ public abstract class Mensch {
 	}
 
 	/**
-	 * Sets the reittier.
+	 * Setzt das Reittier.
 	 *
 	 * @param reittier the new reittier
 	 */
@@ -189,7 +174,7 @@ public abstract class Mensch {
 	}
 
 	/**
-	 * Sets the stamm.
+	 * Setzt den Stamm
 	 *
 	 * @param stamm the new stamm
 	 */

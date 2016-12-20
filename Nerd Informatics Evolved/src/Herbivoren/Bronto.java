@@ -1,12 +1,11 @@
 package Herbivoren;
 
 import Dinosaurier.Dinosaurier;
-import Exceptions.AndereArt;
-import Exceptions.GleicherDinosaurier;
+import Exceptions.AndereArtException;
+import Exceptions.GleicherDinosaurierException;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class Bronto.
+ * Die Klasse  Bronto.
  *
  * @author Marius
  */
@@ -14,7 +13,7 @@ import Exceptions.GleicherDinosaurier;
 public class Bronto extends Pflanzenfresser {
 
 	/**
-	 * Instantiates a new bronto.
+	 * Instanziert einen neuen Brontor mit 8 Stärke und 130 Leben.
 	 */
 	public Bronto() {
 		setstaerke(8);
@@ -47,15 +46,15 @@ public class Bronto extends Pflanzenfresser {
 	 * @see Dinosaurier.Dinosaurier#paaren(Dinosaurier.Dinosaurier)
 	 */
 	@Override
-	public Dinosaurier paaren(Dinosaurier partner) throws GleicherDinosaurier,AndereArt {
+	public Dinosaurier paaren(Dinosaurier partner) throws GleicherDinosaurierException,AndereArtException {
 		if (partner.getID() % 2 != getID() % 2 && (this.equals(partner))){ 
 			return new Bronto();
 		}
 		if(partner.getID()==getID()){
-			throw new GleicherDinosaurier();
+			throw new GleicherDinosaurierException();
 		}
 		else{
-			throw new AndereArt();
+			throw new AndereArtException();
 		}
 	}
 	

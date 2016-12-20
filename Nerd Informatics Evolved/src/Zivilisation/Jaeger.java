@@ -1,22 +1,22 @@
 package Zivilisation;
 
 import Dinosaurier.Dinosaurier;
-import Exceptions.NameZuKurz;
+import Exceptions.NameZuKurzException;
 import Karnivoren.Fleischfresser;
 
 // TODO: Auto-generated Javadoc
 /**
- * The Class Jaeger.
+ * TDie Klasse Jaeger 
  */
 public class Jaeger extends Mensch {
 
 	/**
-	 * Instantiates a new jaeger.
+	 * Instanziiert einen neuen jaeger
 	 *
-	 * @param name the name
-	 * @throws NameZuKurz 
+	 * @param name der Name
+	 * @throws NameZuKurz
 	 */
-	public Jaeger(String name) throws NameZuKurz {
+	public Jaeger(String name) throws NameZuKurzException {
 		super(name);
 		setleben(50);
 		setAlter(20);
@@ -56,6 +56,6 @@ public class Jaeger extends Mensch {
 	 */
 	@Override
 	public String toString(){
-		return "Name: "+getName()+" Leben: "+getleben()+" Alter: "+getAlter()+" Stamm: "+getStamm()+" Reittier: "+getReittier().getClass()+" "+getReittier();
+		return "Name: "+getName()+" Leben: "+getleben()+" Alter: "+getAlter()+" Stamm: "+getStamm().getNamen()+" Reittier: "+getReittier().getClass()+" "+getReittier();
 	}
 }

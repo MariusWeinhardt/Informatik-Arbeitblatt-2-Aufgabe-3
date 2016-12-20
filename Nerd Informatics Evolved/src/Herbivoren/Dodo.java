@@ -1,18 +1,17 @@
 package Herbivoren;
 
 import Dinosaurier.Dinosaurier;
-import Exceptions.AndereArt;
-import Exceptions.AnzahlZuKlein;
-import Exceptions.GleicherDinosaurier;
+import Exceptions.AndereArtException;
+import Exceptions.AnzahlZuKleinException;
+import Exceptions.GleicherDinosaurierException;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class Dodo.
+ *Die Klasse Dodo.
  */
 public class Dodo extends Pflanzenfresser {
 
 	/**
-	 * Instantiates a new dodo.
+	 * Instanziert einen neuen Dodo mit 1 Stärke und 10 Leben.
 	 */
 	public Dodo() {
 		setstaerke(1);
@@ -37,7 +36,6 @@ public class Dodo extends Pflanzenfresser {
 	 */
 	@Override
 	public String giblaut() {
-		// TODO Auto-generated method stub
 
 		return "Gurrgurr";
 	}
@@ -46,28 +44,28 @@ public class Dodo extends Pflanzenfresser {
 	 * @see Dinosaurier.Dinosaurier#paaren(Dinosaurier.Dinosaurier)
 	 */
 	@Override
-	public Dinosaurier paaren(Dinosaurier partner) throws GleicherDinosaurier,AndereArt {
+	public Dinosaurier paaren(Dinosaurier partner) throws GleicherDinosaurierException,AndereArtException {
 		// abfrage partner haben anderes geschlecht und gleicher art
 		if (partner.getID() % 2 != getID() % 2 && this.equals(partner)) {
 
 			return new Dodo();
 		}
 			if(partner.getID()==getID()){
-				throw new GleicherDinosaurier();
+				throw new GleicherDinosaurierException();
 			}
 			else{
-				throw new AndereArt();
+				throw new AndereArtException();
 			}
 
 	}
 
 	/**
-	 * Picken.
+	 * Picken action-Methode picken() von Dodo.
 	 *
-	 * @param ziel the ziel
-	 * @throws AnzahlZuKlein 
+	 * @param ziel Das ziel
+	 * @throws AnzahlZuKlein the anzahl zu klein
 	 */
-	public void picken(Object ziel) throws AnzahlZuKlein {
+	public void picken(Object ziel) throws AnzahlZuKleinException {
 		action(ziel, 0, 0);
 	}
 

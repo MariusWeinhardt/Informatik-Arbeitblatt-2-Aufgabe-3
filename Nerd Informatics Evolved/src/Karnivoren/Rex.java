@@ -1,19 +1,18 @@
 package Karnivoren;
 
 import Dinosaurier.Dinosaurier;
-import Exceptions.AndereArt;
-import Exceptions.GleicherDinosaurier;
+import Exceptions.AndereArtException;
+import Exceptions.GleicherDinosaurierException;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class Rex.
+ * Die Klasse Rex.
  *
  * @author Marius
  */
 public class Rex extends Fleischfresser {
 
 	/**
-	 * Instantiates a new rex.
+	 * Instanziert einen neuen Rex mit staerke 10 und leben 100
 	 */
 	public Rex() {
 		setstaerke(10);
@@ -46,16 +45,16 @@ public class Rex extends Fleischfresser {
 	 * @see Dinosaurier.Dinosaurier#paaren(Dinosaurier.Dinosaurier)
 	 */
 	@Override
-	public Dinosaurier paaren(Dinosaurier partner) throws GleicherDinosaurier,AndereArt {
+	public Dinosaurier paaren(Dinosaurier partner) throws GleicherDinosaurierException,AndereArtException {
 		if (partner.getID() % 2 != getID() % 2 && this.equals(partner)) {
 																			
 			return new Rex();
 		}
 			if(partner.getID()==getID()){
-				throw new GleicherDinosaurier();
+				throw new GleicherDinosaurierException();
 			}
 			else{
-				throw new AndereArt();
+				throw new AndereArtException();
 			}
 	}
 

@@ -1,15 +1,14 @@
 package Dinosaurier;
 
-import Exceptions.AndereArt;
-import Exceptions.AnzahlZuKlein;
-import Exceptions.GleicherDinosaurier;
+import Exceptions.AndereArtException;
+import Exceptions.AnzahlZuKleinException;
+import Exceptions.GleicherDinosaurierException;
 import Zivilisation.Mensch;
 import Zivilisation.Ressource;
 import Zivilisation.Stamm;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class Dinosaurier.
+ * Die Klasse Dinosaurier.
  *
  * @author Marius
  */
@@ -21,7 +20,7 @@ import Zivilisation.Stamm;
  */
 public abstract class Dinosaurier {
 
-/** The counter. */
+/** Der counter. wird bei der erstellung eines jeden objektes hochgeählt */
 //Initialisierung der Attribute
 	private static int counter;
 	
@@ -60,9 +59,9 @@ public abstract class Dinosaurier {
 	 * @param Ziel ein Objekt das entweder ein Dinosaurier eine Ressource oder ein Mensch ist
 	 * @param dmgMult gibt den schaden multiplikator an der entweder 0,1 oder 2 ist
 	 * @param harvestMult gibt den Ernte multiplikator an der entweder 0,1 oder 2 ist
-	 * @throws AnzahlZuKlein 
+	 * @throws AnzahlZuKleinException Wenn die Anzahl 0 oder weniger beträgt wird diese Exception ausgelöst
 	 */
-	protected void action(Object Ziel, int dmgMult, int harvestMult) throws AnzahlZuKlein {
+	protected void action(Object Ziel, int dmgMult, int harvestMult) throws AnzahlZuKleinException {
 		
 		if (Ziel instanceof Dinosaurier) {
 			((Dinosaurier) Ziel).setleben(((Dinosaurier) Ziel).getleben() - (getstaerke() * dmgMult));
@@ -109,10 +108,6 @@ public abstract class Dinosaurier {
 		return leben;
 	} 
 
-			
-		
-
-	
 
 	/**
 	 * Gibt die staerke des Objektes zurück.
@@ -139,20 +134,20 @@ public abstract class Dinosaurier {
 	 * @return  String
 	 * 
 	 */
-	public abstract String giblaut();
+	protected abstract String giblaut();
 
 	/**
 	 * Gibt einen neuen Dinosaurier zurück wenn beide partner unterschiedlichen geschlechts sind und von der gleichen Art.
 	 * 
 	 * @param partner ein objekt von Dinosaurier definiert den partner 
 	 * @return gibt ein Objekt einer Dinosaurier Klasse zurück
-	 * @throws GleicherDinosaurier 
-	 * @throws AndereArt 
+	 * @throws AndereArtException Wenn der Partner von einer anderen art ist als der Dino der diese Methode aufruft wird diese Exception geworfen 
+	 * @throws GleicherDinosaurierException  Wenn der partner der gleiche Dinosaurier ist der auch die Methode aufruft wird diese Exception geworfen 
 	 */
-	public abstract Dinosaurier paaren(Dinosaurier partner) throws GleicherDinosaurier, AndereArt;
+	protected abstract Dinosaurier paaren(Dinosaurier partner) throws GleicherDinosaurierException, AndereArtException;
 
 	/**
-	 * Sets the leben.
+	 * Setzt das leben.
 	 *
 	 * @param leben Das leben des objektes wird auf den übergebenen wert gesetzt
 	 */

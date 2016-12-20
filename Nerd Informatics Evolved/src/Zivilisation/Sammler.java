@@ -1,7 +1,7 @@
 package Zivilisation;
 
 import Dinosaurier.Dinosaurier;
-import Exceptions.NameZuKurz;
+import Exceptions.NameZuKurzException;
 import Herbivoren.Pflanzenfresser;
 
 // TODO: Auto-generated Javadoc
@@ -14,9 +14,9 @@ public class Sammler extends Mensch {
 	 * Instantiates a new sammler.
 	 *
 	 * @param name the name
-	 * @throws NameZuKurz 
+	 * @throws NameZuKurz the name zu kurz
 	 */
-	public Sammler(String name) throws NameZuKurz {
+	public Sammler(String name) throws NameZuKurzException {
 		super(name);
 		setleben(25);
 		setAlter(20);
@@ -54,6 +54,7 @@ public class Sammler extends Mensch {
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()
 	 */
+	@Override
 	public String toString(){
 		return "Name: "+getName()+" Leben: "+getleben()+" Alter: "+getAlter()+" Stamm: "+getStamm()+" Reittier: "+getReittier().getClass()+" "+getReittier();
 	}

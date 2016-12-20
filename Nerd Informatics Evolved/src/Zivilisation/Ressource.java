@@ -1,6 +1,6 @@
 package Zivilisation;
 
-import Exceptions.AnzahlZuKlein;
+import Exceptions.AnzahlZuKleinException;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -19,13 +19,14 @@ public class Ressource {
 	 *
 	 * @param name the name
 	 * @param anzahl the anzahl
+	 * @throws AnzahlZuKlein the anzahl zu klein
 	 */
-	public Ressource(String name, int anzahl)throws AnzahlZuKlein {
+	public Ressource(String name, int anzahl)throws AnzahlZuKleinException {
 			this.name=name;
 			if(anzahl >0)
 			this.anzahl=anzahl;
 			else
-				throw new AnzahlZuKlein();
+				throw new AnzahlZuKleinException();
 	}
 
 	/* (non-Javadoc)

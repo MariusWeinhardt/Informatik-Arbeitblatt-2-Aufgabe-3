@@ -1,8 +1,8 @@
 package Herbivoren;
 
 import Dinosaurier.Dinosaurier;
-import Exceptions.AndereArt;
-import Exceptions.GleicherDinosaurier;
+import Exceptions.AndereArtException;
+import Exceptions.GleicherDinosaurierException;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -11,7 +11,7 @@ import Exceptions.GleicherDinosaurier;
 public class Triceratops extends Pflanzenfresser {
 
 	/**
-	 * Instantiates a new triceratops.
+	 * Instanziert einen neuen Triceratops mit 5 Stärke und 60 Leben.
 	 */
 	public Triceratops() {
 		setstaerke(5);
@@ -37,7 +37,6 @@ public class Triceratops extends Pflanzenfresser {
 	 */
 	@Override
 	public String giblaut() {
-		// TODO Auto-generated method stub
 		return "Roooow…";
 	}
 
@@ -45,17 +44,17 @@ public class Triceratops extends Pflanzenfresser {
 	 * @see Dinosaurier.Dinosaurier#paaren(Dinosaurier.Dinosaurier)
 	 */
 	@Override
-	public Dinosaurier paaren(Dinosaurier partner) throws GleicherDinosaurier,AndereArt{
+	public Dinosaurier paaren(Dinosaurier partner) throws GleicherDinosaurierException,AndereArtException{
 		if (partner.getID() % 2 != getID() % 2 && this.equals(partner)) {
 																		
 
 			return new Triceratops();
 		}
 			if(partner.getID()==getID()){
-				throw new GleicherDinosaurier();
+				throw new GleicherDinosaurierException();
 			}
 			else{
-				throw new AndereArt();
+				throw new AndereArtException();
 			}
 	}
 

@@ -1,22 +1,22 @@
 package Main;
 
-import Exceptions.AndereArt;
-import Exceptions.AnzahlZuKlein;
-import Exceptions.ArrayistLeer;
-import Exceptions.ArrayistVoll;
-import Exceptions.GleicherDinosaurier;
-import Exceptions.NameZuKurz;
+import Exceptions.AndereArtException;
+import Exceptions.AnzahlZuKleinException;
+import Exceptions.ArrayistLeerException;
+import Exceptions.ArrayistVollException;
+import Exceptions.GleicherDinosaurierException;
+import Exceptions.NameZuKurzException;
 import Herbivoren.Bronto;
 import Herbivoren.Dodo;
 import Herbivoren.Triceratops;
 import Karnivoren.Raptor;
 import Karnivoren.Rex;
 import Zivilisation.Jaeger;
-import Zivilisation.Mensch;
 import Zivilisation.Ressource;
 import Zivilisation.Sammler;
 import Zivilisation.Stamm;
 
+// TODO: Auto-generated Javadoc
 /**
  * The Class TestGame.
  */
@@ -26,14 +26,14 @@ public class TestGame {
 	 * The main method.
 	 *
 	 * @param args the arguments
-	 * @throws NameZuKurz 
-	 * @throws AnzahlZuKlein 
-	 * @throws ArrayistVoll 
-	 * @throws ArrayistLeer 
-	 * @throws GleicherDinosaurier 
-	 * @throws AndereArt 
+	 * @throws NameZuKurz the name zu kurz
+	 * @throws AnzahlZuKlein the anzahl zu klein
+	 * @throws ArrayistVoll the arrayist voll
+	 * @throws ArrayistLeer the arrayist leer
+	 * @throws GleicherDinosaurier the gleicher dinosaurier
+	 * @throws AndereArt the andere art
 	 */
-	public static void main(String[] args) throws NameZuKurz, AnzahlZuKlein, ArrayistVoll, ArrayistLeer, GleicherDinosaurier, AndereArt {
+	public static void main(String[] args) throws NameZuKurzException, AnzahlZuKleinException, ArrayistVollException, ArrayistLeerException, GleicherDinosaurierException, AndereArtException {
 		
 		//Objekte erstellen
 		Bronto Bronto1 = new Bronto();
@@ -124,7 +124,12 @@ public class TestGame {
 		System.out.println(Pelze);
 		
 		
-		System.out.println(stamm1.toString());
+		stamm2.mitgliedHinzufuegen(jaeger);
+		stamm2.mitgliedHinzufuegen(sammler);
+		stamm2.zaehmen(Bronto1);
+		
+		
+		System.out.println(stamm2.toString());
 		
 	/* Array ist voll test
 		Bronto Bronto3 =new Bronto();
@@ -153,8 +158,8 @@ public class TestGame {
 		stamm1.zaehmen(Bronto13);
 		*/
 		
+		//System.out.println(stamm2.toString());
 	
-		
 	
 	
 	
