@@ -129,7 +129,7 @@ public class TestGame {
 		stamm2.zaehmen(Bronto1);
 		
 		
-		System.out.println(stamm1.toString());
+		System.out.println(stamm2.toString());
 		
 	/* Array ist voll test
 		Bronto Bronto3 =new Bronto();
