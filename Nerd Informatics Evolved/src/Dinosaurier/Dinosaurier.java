@@ -134,7 +134,7 @@ public abstract class Dinosaurier {
 	 * @return  String
 	 * 
 	 */
-	public abstract String giblaut();
+	protected abstract String giblaut();
 
 	/**
 	 * Gibt einen neuen Dinosaurier zurück wenn beide partner unterschiedlichen geschlechts sind und von der gleichen Art.
@@ -144,7 +144,7 @@ public abstract class Dinosaurier {
 	 * @throws AndereArtException Wenn der Partner von einer anderen art ist als der Dino der diese Methode aufruft wird diese Exception geworfen 
 	 * @throws GleicherDinosaurierException  Wenn der partner der gleiche Dinosaurier ist der auch die Methode aufruft wird diese Exception geworfen 
 	 */
-	public abstract Dinosaurier paaren(Dinosaurier partner) throws GleicherDinosaurierException, AndereArtException;
+	protected abstract Dinosaurier paaren(Dinosaurier partner) throws GleicherDinosaurierException, AndereArtException;
 
 	/**
 	 * Setzt das leben.
