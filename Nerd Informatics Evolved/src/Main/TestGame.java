@@ -1,5 +1,11 @@
 package Main;
 
+import Exceptions.AndereArt;
+import Exceptions.AnzahlZuKlein;
+import Exceptions.ArrayistLeer;
+import Exceptions.ArrayistVoll;
+import Exceptions.GleicherDinosaurier;
+import Exceptions.NameZuKurz;
 import Herbivoren.Bronto;
 import Herbivoren.Dodo;
 import Herbivoren.Triceratops;
@@ -11,12 +17,23 @@ import Zivilisation.Ressource;
 import Zivilisation.Sammler;
 import Zivilisation.Stamm;
 
+/**
+ * The Class TestGame.
+ */
 public class TestGame {
 
 	/**
-	 * @param args
+	 * The main method.
+	 *
+	 * @param args the arguments
+	 * @throws NameZuKurz 
+	 * @throws AnzahlZuKlein 
+	 * @throws ArrayistVoll 
+	 * @throws ArrayistLeer 
+	 * @throws GleicherDinosaurier 
+	 * @throws AndereArt 
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws NameZuKurz, AnzahlZuKlein, ArrayistVoll, ArrayistLeer, GleicherDinosaurier, AndereArt {
 		
 		//Objekte erstellen
 		Bronto Bronto1 = new Bronto();
@@ -46,6 +63,8 @@ public class TestGame {
 	    Sammler sammler = new Sammler("Bob");
 	    Jaeger jaeger = new Jaeger("Alrik");
 
+	    
+	    
 		
 		
 		//Dino tests
@@ -57,8 +76,8 @@ public class TestGame {
 	
 		
 		System.out.println(Rex1.paaren(Rex2));
-		System.out.println(Raptor1.paaren(Raptor1));
-		System.out.println(Bronto1.paaren(Dodo1));
+		//System.out.println(Raptor1.paaren(Raptor1));
+		//System.out.println(Bronto1.paaren(Dodo1));
 
 		System.out.println(Dodo1.toString());
 		Bronto1.stossen(Dodo1);
@@ -73,10 +92,6 @@ public class TestGame {
 		sammler.reiten(Bronto1);
 		jaeger.reiten(Rex1);
 		sammler.reiten(Rex1);
-		
-		//zustand aendern ???
-		Mensch.zustandAendern(0);
-		Mensch.zustandAendern(0);
 		
 		System.out.println(sammler.toString());
 	
@@ -105,8 +120,49 @@ public class TestGame {
 		//ressourcen test
 		Bronto1.stossen(Stein);
 		Rex1.angreifen(Pelze);
+		Rex1.angreifen(Stein);
+		System.out.println(Pelze);
 		
 		
+		System.out.println(stamm1.toString());
+		
+	/* Array ist voll test
+		Bronto Bronto3 =new Bronto();
+		Bronto Bronto4 = new Bronto();
+		Bronto Bronto5 = new Bronto();
+		Bronto Bronto6 = new Bronto();
+		Bronto Bronto7 = new Bronto();
+		Bronto Bronto8 = new Bronto();
+		Bronto Bronto9 = new Bronto();
+		Bronto Bronto10 = new Bronto();
+		Bronto Bronto11 = new Bronto();
+		Bronto Bronto12 = new Bronto();
+		Bronto Bronto13 = new Bronto();
+		
+		
+		stamm1.zaehmen(Bronto3);
+		stamm1.zaehmen(Bronto4);
+		stamm1.zaehmen(Bronto5);
+		stamm1.zaehmen(Bronto6);
+		stamm1.zaehmen(Bronto7);
+		stamm1.zaehmen(Bronto8);
+		stamm1.zaehmen(Bronto9);
+		stamm1.zaehmen(Bronto10);
+		stamm1.zaehmen(Bronto11);
+		stamm1.zaehmen(Bronto12);
+		stamm1.zaehmen(Bronto13);
+		*/
+		
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	
 	}
 
 }

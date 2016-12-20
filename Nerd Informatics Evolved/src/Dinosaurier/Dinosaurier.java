@@ -1,12 +1,17 @@
 package Dinosaurier;
 
+import Exceptions.AndereArt;
+import Exceptions.AnzahlZuKlein;
+import Exceptions.GleicherDinosaurier;
 import Zivilisation.Mensch;
 import Zivilisation.Ressource;
 import Zivilisation.Stamm;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author Marius
+ * The Class Dinosaurier.
  *
+ * @author Marius
  */
 
 /**
@@ -15,30 +20,24 @@ import Zivilisation.Stamm;
  *
  */
 public abstract class Dinosaurier {
+
+/** The counter. */
 //Initialisierung der Attribute
 	private static int counter;
+	
+	/** Die id. */
 	private int ID;
+	
+	/** Das leben. */
 	private int leben;
+	
+	/** Die staerke. */
 	private int staerke;
+	
+	/** Der stamm. */
 	private Stamm stamm;
 
 	
-	/**
-	 * Gibt den stamm züruck
-	 * @return stamm
-	 */
-	public Stamm getStamm() {
-		return stamm;
-	}
-
-	/**
-	 * setzt denn stamm auf den übergebenden parameter
-	 * @param stamm übergebener wert 
-	 */
-	public void setStamm(Stamm stamm) {
-		this.stamm = stamm;
-	}
-
 	/**
 	 * Der Konsruktor von Dinosaurier ist dafür verantwortlich jedem erstelltem objekt eine einzigartige ID zuzuweisen.
 	 * 
@@ -61,8 +60,9 @@ public abstract class Dinosaurier {
 	 * @param Ziel ein Objekt das entweder ein Dinosaurier eine Ressource oder ein Mensch ist
 	 * @param dmgMult gibt den schaden multiplikator an der entweder 0,1 oder 2 ist
 	 * @param harvestMult gibt den Ernte multiplikator an der entweder 0,1 oder 2 ist
+	 * @throws AnzahlZuKlein 
 	 */
-	protected void action(Object Ziel, int dmgMult, int harvestMult) {
+	protected void action(Object Ziel, int dmgMult, int harvestMult) throws AnzahlZuKlein {
 		
 		if (Ziel instanceof Dinosaurier) {
 			((Dinosaurier) Ziel).setleben(((Dinosaurier) Ziel).getleben() - (getstaerke() * dmgMult));
@@ -74,25 +74,26 @@ public abstract class Dinosaurier {
 
 		if (Ziel instanceof Ressource) {
 			
-			((Ressource) Ziel).setanzahl(((Ressource) Ziel).getanzahl() - (getstaerke() * harvestMult));
-			//try catch für nullpointerexception
-			try{
-			this.getStamm().verwalteRessourcen((Ressource) Ziel,(getstaerke() * harvestMult));
-			}catch(NullPointerException e){
+			if(getStamm()==null){
 				System.out.println("Der Dinosaurer hat keinen Stamm und kann deshalb keine Ressourcen sammeln");
 			}
+			else{
+				
+			getStamm().verwalteRessourcen((Ressource) Ziel,(getstaerke() * harvestMult));
+			
+			((Ressource) Ziel).setanzahl(((Ressource) Ziel).getanzahl() - (getstaerke() * harvestMult));
+			}
+			
+				
+			
 			
 		}
 			
-		} 
-
-			
-		
-
-	
+		}
 
 	/**
-	 * Gibt die ID des Objektes zurück
+	 * Gibt die ID des Objektes zurück.
+	 *
 	 * @return die ID des objektes
 	 */
 	public int getID() {
@@ -100,19 +101,35 @@ public abstract class Dinosaurier {
 	}
 
 	/**
-	 * Gibt das leben des Objektes zurück
+	 * Gibt das leben des Objektes zurück.
+	 *
 	 * @return das leben des objektes
 	 */
 	public int getleben() {
 		return leben;
-	}
+	} 
+
+			
+		
+
+	
 
 	/**
-	 * Gibt die staerke des Objektes zurück
+	 * Gibt die staerke des Objektes zurück.
+	 *
 	 * @return die staerke des objektes
 	 */
 	public int getstaerke() {
 		return staerke;
+	}
+
+	/**
+	 * Gibt den stamm züruck.
+	 *
+	 * @return stamm
+	 */
+	public Stamm getStamm() {
+		return stamm;
 	}
 
 	/**
@@ -129,23 +146,36 @@ public abstract class Dinosaurier {
 	 * 
 	 * @param partner ein objekt von Dinosaurier definiert den partner 
 	 * @return gibt ein Objekt einer Dinosaurier Klasse zurück
+	 * @throws GleicherDinosaurier 
+	 * @throws AndereArt 
 	 */
-	public abstract Dinosaurier paaren(Dinosaurier partner);
+	public abstract Dinosaurier paaren(Dinosaurier partner) throws GleicherDinosaurier, AndereArt;
 
 	/**
-	 * 
-	 * @param leben Das leben des objektes wird auf den übergebenen wert gesetzt 
+	 * Sets the leben.
+	 *
+	 * @param leben Das leben des objektes wird auf den übergebenen wert gesetzt
 	 */
 	public void setleben(int leben) {
 		this.leben = leben;
 	}
 
 	/**
-	 * Die staerke des objektes wird auf den übergebenen wert gesetzt 
+	 * Die staerke des objektes wird auf den übergebenen wert gesetzt .
+	 *
 	 * @param staerke ist der ubergebene parameter
 	 */
 	protected void setstaerke(int staerke) {
 		this.staerke = staerke;
+	}
+
+	/**
+	 * setzt denn stamm auf den übergebenden parameter.
+	 *
+	 * @param stamm übergebener wert
+	 */
+	public void setStamm(Stamm stamm) {
+		this.stamm = stamm;
 	}
 
 }

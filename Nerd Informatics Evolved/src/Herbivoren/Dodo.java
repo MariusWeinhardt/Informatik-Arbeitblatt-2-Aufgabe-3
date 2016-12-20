@@ -1,11 +1,18 @@
 package Herbivoren;
 
 import Dinosaurier.Dinosaurier;
+import Exceptions.AndereArt;
+import Exceptions.AnzahlZuKlein;
+import Exceptions.GleicherDinosaurier;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Dodo.
+ */
 public class Dodo extends Pflanzenfresser {
 
 	/**
-	 * 
+	 * Instantiates a new dodo.
 	 */
 	public Dodo() {
 		setstaerke(1);
@@ -39,24 +46,28 @@ public class Dodo extends Pflanzenfresser {
 	 * @see Dinosaurier.Dinosaurier#paaren(Dinosaurier.Dinosaurier)
 	 */
 	@Override
-	public Dinosaurier paaren(Dinosaurier partner) {
+	public Dinosaurier paaren(Dinosaurier partner) throws GleicherDinosaurier,AndereArt {
 		// abfrage partner haben anderes geschlecht und gleicher art
-		if (partner.getID() % 2 != getID() % 2 && this.equals(partner)&&partner.getID()!=getID()) {// art
-																			// abfrage
-																			// ?
+		if (partner.getID() % 2 != getID() % 2 && this.equals(partner)) {
 
 			return new Dodo();
-		} else {
-			// try catch fehlerausgabe 
-			
-			return null;
 		}
+			if(partner.getID()==getID()){
+				throw new GleicherDinosaurier();
+			}
+			else{
+				throw new AndereArt();
+			}
+
 	}
 
 	/**
-	 * @param ziel
+	 * Picken.
+	 *
+	 * @param ziel the ziel
+	 * @throws AnzahlZuKlein 
 	 */
-	public void picken(Object ziel) {
+	public void picken(Object ziel) throws AnzahlZuKlein {
 		action(ziel, 0, 0);
 	}
 
