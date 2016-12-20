@@ -127,19 +127,35 @@ private void setNamen(String namen) {
 	this.namen = namen;
 
 }
-	
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString(){
-	
-		return "Stamm : "+getNamen()+" Ressourcen: "+ressourcen[0];
-	
-
-
-	
-}
+		String mitglieders="";
+		String dinoss="";
+		String ressourcens="";
+		int zähler=0;
+		
+		while(mitglieder[zähler]!= null){
+			mitglieders=mitglieders+mitglieder[zähler].getName()+" ";
+			zähler++;
+		}
+		
+		 zähler=0;
+		while(dinos[zähler]!= null){
+			dinoss=dinoss+dinos[zähler].getID()+" ";
+			zähler++;
+		}
+		
+		
+		 zähler=0;
+		while(ressourcen[zähler]!= null){
+			ressourcens=ressourcens+ressourcen[zähler].getname()+" "+ressourcen[zähler].getanzahl()+" ";
+			zähler++;
+		}
+		
+		
+		
+		return "Name: "+getNamen()+" Mitglieder: "+mitglieders+" Dinos: "+dinoss+" Ressourcen: "+ressourcens;
+	}
 	
 	
 	
@@ -177,7 +193,6 @@ private void setNamen(String namen) {
 		 }
 		 ressourcen[zähler]=new Ressource(ressource.getname(),anzahl);
 	 }
-		System.out.println(ressourcen[0]);
 	
    }
 	

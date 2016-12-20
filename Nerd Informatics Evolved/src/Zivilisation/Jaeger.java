@@ -56,6 +56,6 @@ public class Jaeger extends Mensch {
 	 */
 	@Override
 	public String toString(){
-		return "Name: "+getName()+" Leben: "+getleben()+" Alter: "+getAlter()+" Stamm: "+getStamm()+" Reittier: "+getReittier().getClass()+" "+getReittier();
+		return "Name: "+getName()+" Leben: "+getleben()+" Alter: "+getAlter()+" Stamm: "+getStamm().getNamen()+" Reittier: "+getReittier().getClass()+" "+getReittier();
 	}
 }

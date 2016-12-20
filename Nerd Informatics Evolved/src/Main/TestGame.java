@@ -124,6 +124,11 @@ public class TestGame {
 		System.out.println(Pelze);
 		
 		
+		stamm2.mitgliedHinzufuegen(jaeger);
+		stamm2.mitgliedHinzufuegen(sammler);
+		stamm2.zaehmen(Bronto1);
+		
+		
 		System.out.println(stamm1.toString());
 		
 	/* Array ist voll test
@@ -153,7 +158,7 @@ public class TestGame {
 		stamm1.zaehmen(Bronto13);
 		*/
 		
-		System.out.println(stamm2.toString());
+		//System.out.println(stamm2.toString());
 	
 	
 	
