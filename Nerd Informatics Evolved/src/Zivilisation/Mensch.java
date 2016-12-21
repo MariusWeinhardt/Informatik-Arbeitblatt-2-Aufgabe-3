@@ -20,7 +20,6 @@ public abstract class Mensch {
 
 	/** The alter. */
 	private	int alter;
-	//Setter getter ??
 
 	/** The stamm. */
 	private	Stamm stamm;
