@@ -1,8 +1,7 @@
 package Exceptions;
 
-// TODO: Auto-generated Javadoc
 /**
- * Die Klasse AnzahlZuKleinException. Die Exception wird nur geworfen 
+ * Die Klasse AnzahlZuKleinException. Die Exception wird nur geworfen wenn eine Anzahl kleiner oder gleich 0 ist
  */
 public class AnzahlZuKleinException extends Exception{
 	/**

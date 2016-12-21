@@ -18,7 +18,7 @@ public abstract class Pflanzenfresser extends Dinosaurier {
 	 * action-Methode stossen() von Pflanzenfresser
 	 *
 	 * @param Ziel das Ziel 
-	 * @throws AnzahlZuKlein 
+	 * @throws AnzahlZuKleinException Wenn die Anzahl kleiner oder gleich 0 ist
 	 */
 	public void stossen(Object Ziel) throws AnzahlZuKleinException {
 		action(Ziel, 1, 2);

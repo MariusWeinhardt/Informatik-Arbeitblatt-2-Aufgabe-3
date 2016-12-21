@@ -12,26 +12,26 @@ import Karnivoren.Fleischfresser;
  */
 public abstract class Mensch {
 	
-	/** The name. */
+	/** Der name. */
 	private	String name;
 	
-	/** The leben. */
+	/** Das leben. */
 	private	int leben;
 
-	/** The alter. */
+	/** Das alter. */
 	private	int alter;
 
-	/** The stamm. */
+	/** Der stamm. */
 	private	Stamm stamm;
 	
-	/** The reittier. */
+	/** Das reittier. */
 	private	Dinosaurier reittier;
 	
 	/**
 	 * Instanziiert einen neuen Mensch.
 	 *
-	 * @param name the name
-	 * @throws NameZuKurz the name zu kurz
+	 * @param name der name
+	 * @throws NameZuKurzException Wenn der name weniger als 2 zeichen hat
 	 */
 	Mensch(String name) throws NameZuKurzException {
 		stamm=null;
@@ -43,11 +43,101 @@ public abstract class Mensch {
 	}
 
 	/**
+	 * gibt das alter zurück.
+	 *
+	 * @return das alter
+	 */
+	public int getAlter() {
+		return alter;
+	}
+
+	/**
+	 * gibt das leben zurück.
+	 *
+	 * @return das leben
+	 */
+	public int getleben() {
+		return leben;
+	}
+
+	/**
+	 * Git den namen zurück.
+	 *
+	 * @return das name
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * gibt das Reittier zurück.
+	 *
+	 * @return das reittier
+	 */
+	public Dinosaurier getReittier() {
+		return reittier;
+	}
+
+	/**
+	 * Gibt den stamm zurück
+	 *
+	 * @return der stamm
+	 */
+	public Stamm getStamm() {
+		return stamm;
+	}
+
+	/**
+	 * Setzt das Leben
+	 *
+	 * @param leben das neue Leben
+	 */
+	public void setleben(int leben) {
+		this.leben = leben;
+	}
+
+	/**
+	 * setzt das Alter
+	 *
+	 * @param alter das neue Alter
+	 */
+	protected void setAlter(int alter) {
+		this.alter = alter;
+	}
+	
+	/**
+	 * Setzt den Namen
+	 *
+	 * @param name der neue name
+	 */
+	protected void setName(String name) {
+		this.name = name;
+	}
+
+	/**
+	 * Setzt das Reittier.
+	 *
+	 * @param reittier das neue reittier
+	 */
+	protected void setReittier(Dinosaurier reittier) {
+		this.reittier = reittier;
+	}
+
+	/**
+	 * Setzt den Stamm
+	 *
+	 * @param stamm the new stamm
+	 */
+	protected void setStamm(Stamm stamm) {
+		this.stamm = stamm;
+	}
+	
+	/**
 	 * Action handler für die Unter Klassen
 	 * je nach Ziel führt die Methode andere Berechnungen durch.
 	 *
-	 * @param ziel the ziel
-	 * @throws AnzahlZuKlein the anzahl zu klein
+	 * @param ziel das Ziel
+	 * @throws AnzahlZuKleinException Wenn die Anzahl 0 oder weniger beträgt wird diese Exception geweorfen
 	 */
 	void action(Object ziel) throws AnzahlZuKleinException {
 		if(reittier==null){
@@ -62,9 +152,6 @@ public abstract class Mensch {
 
 			if (ziel instanceof Ressource) {
 				((Ressource) ziel).setanzahl(((Ressource) ziel).getanzahl() + (1*1));
-				//verwalteRessourcen();
-			
-
 		}
 	
 			
@@ -85,101 +172,13 @@ public abstract class Mensch {
 	}
 
 	/**
-	 * gibt das alter zurück.
-	 *
-	 * @return the alter
-	 */
-	public int getAlter() {
-		return alter;
-	}
-	
-	/**
-	 * gibt das leben zurück.
-	 *
-	 * @return the leben
-	 */
-	public int getleben() {
-		return leben;
-	}
-
-	/**
-	 * Git den namen zurück.
-	 *
-	 * @return the name
-	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * gibt das Reittier zurück.
-	 *
-	 * @return the reittier
-	 */
-	public Dinosaurier getReittier() {
-		return reittier;
-	}
-
-	/**
-	 * Gibt den stamm zurück
-	 *
-	 * @return the stamm
-	 */
-	public Stamm getStamm() {
-		return stamm;
-	}
-
-	/**
 	 * Reiten stellt eine kentniss beziehung zwischen mensch und dinosaurier her
 	 *
-	 * @param dino the dino
+	 * @param dino der dino
 	 */
 	abstract void reiten(Dinosaurier dino);
-
-	/**
-	 * setzt das Alter
-	 *
-	 * @param alter the new alter
-	 */
-	public void setAlter(int alter) {
-		this.alter = alter;
-	}
-
-	/**
-	 * Setzt dsa Leben
-	 *
-	 * @param leben the new leben
-	 */
-	public void setleben(int leben) {
-		this.leben = leben;
-	}
 	
-	/**
-	 * Setzt den Namen
-	 *
-	 * @param name the new name
-	 */
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	/**
-	 * Setzt das Reittier.
-	 *
-	 * @param reittier the new reittier
-	 */
-	public void setReittier(Dinosaurier reittier) {
-		this.reittier = reittier;
-	}
-
-	/**
-	 * Setzt den Stamm
-	 *
-	 * @param stamm the new stamm
-	 */
-	public void setStamm(Stamm stamm) {
-		this.stamm = stamm;
-	}
+	
 	
 
 }

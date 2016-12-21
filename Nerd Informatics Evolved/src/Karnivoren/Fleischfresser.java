@@ -3,9 +3,9 @@ package Karnivoren;
 import Dinosaurier.Dinosaurier;
 import Exceptions.AnzahlZuKleinException;
 
-// TODO: Auto-generated Javadoc
+
 /**
- * The Class Fleischfresser.
+ * Die Klasse Fleischfresser.
  */
 public abstract class Fleischfresser extends Dinosaurier {
 
@@ -19,7 +19,7 @@ public abstract class Fleischfresser extends Dinosaurier {
 	 * action-Methode angreifen() von Pflanzenfresser
 	 *
 	 * @param Ziel das Ziel
-	 * @throws AnzahlZuKlein 
+	 * @throws AnzahlZuKleinException Wenn die Anzahl kleiner oder gleich 0 ist
 	 */
 	public void angreifen(Object Ziel) throws AnzahlZuKleinException {
 		action(Ziel, 2, 1);

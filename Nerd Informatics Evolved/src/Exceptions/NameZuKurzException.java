@@ -1,7 +1,7 @@
 package Exceptions;
 
 /**
- * Die Klasse NameZuKurzException.
+ * Die Klasse NameZuKurzException. wird aufgerufen wenn ein name kürzer wie 2 zeichen ist.
  */
 public class NameZuKurzException extends Exception{
 

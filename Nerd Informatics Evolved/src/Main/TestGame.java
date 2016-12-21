@@ -23,15 +23,15 @@ import Zivilisation.Stamm;
 public class TestGame {
 
 	/**
-	 * The main method.
+	 * Die main methode.
 	 *
-	 * @param args the arguments
-	 * @throws NameZuKurz the name zu kurz
-	 * @throws AnzahlZuKlein the anzahl zu klein
-	 * @throws ArrayistVoll the arrayist voll
-	 * @throws ArrayistLeer the arrayist leer
-	 * @throws GleicherDinosaurier the gleicher dinosaurier
-	 * @throws AndereArt the andere art
+	 * @param args die arguments
+	 * @throws NameZuKurzException Wenn der name weniger wie zwei zeichen hat
+	 * @throws AnzahlZuKleinException wen die anzahl 0 oder kleiner ist
+	 * @throws ArrayistVollException wenn das array voll ist und man ein element hinzufügen möchte
+	 * @throws ArrayistLeerException wenn das array leer ist und man ein element löschen möchte
+	 * @throws GleicherDinosaurierException wenn der dinosaurier versucht sich mit sich selbst zu paaren
+	 * @throws AndereArtException wenn der dinosauriere ine andere art hat und man versucht sich mit ihm zu paaren
 	 */
 	public static void main(String[] args) throws NameZuKurzException, AnzahlZuKleinException, ArrayistVollException, ArrayistLeerException, GleicherDinosaurierException, AndereArtException {
 		

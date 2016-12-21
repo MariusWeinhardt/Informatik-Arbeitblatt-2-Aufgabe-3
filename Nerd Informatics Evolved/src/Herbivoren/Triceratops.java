@@ -4,9 +4,9 @@ import Dinosaurier.Dinosaurier;
 import Exceptions.AndereArtException;
 import Exceptions.GleicherDinosaurierException;
 
-// TODO: Auto-generated Javadoc
+
 /**
- * The Class Triceratops.
+ * The Klasse Triceratops.
  */
 public class Triceratops extends Pflanzenfresser {
 

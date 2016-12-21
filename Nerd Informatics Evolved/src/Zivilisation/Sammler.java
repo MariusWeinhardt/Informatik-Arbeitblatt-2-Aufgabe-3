@@ -4,17 +4,16 @@ import Dinosaurier.Dinosaurier;
 import Exceptions.NameZuKurzException;
 import Herbivoren.Pflanzenfresser;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class Sammler.
+ * Die Klasse Sammler.
  */
 public class Sammler extends Mensch {
 
 	/**
-	 * Instantiates a new sammler.
+	 * Instanziiert einen neuen Sammler.
 	 *
-	 * @param name the name
-	 * @throws NameZuKurz the name zu kurz
+	 * @param name der name
+	 * @throws NameZuKurzException wenn der name weniger wie 2 zeichen hat
 	 */
 	public Sammler(String name) throws NameZuKurzException {
 		super(name);

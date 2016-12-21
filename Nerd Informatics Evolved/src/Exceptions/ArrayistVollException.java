@@ -2,7 +2,7 @@ package Exceptions;
 
 
 /**
- * Die Klasse  ArrayistVollException.
+ * Die Klasse  ArrayistVollException. wird nur aufgerufen wenn Ein array voll ist und man versucht etwas hineinzuschreiben
  */
 public class ArrayistVollException extends Exception {
 	

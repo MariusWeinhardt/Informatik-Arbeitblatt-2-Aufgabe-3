@@ -4,9 +4,8 @@ import Dinosaurier.Dinosaurier;
 import Exceptions.NameZuKurzException;
 import Karnivoren.Fleischfresser;
 
-// TODO: Auto-generated Javadoc
 /**
- * TDie Klasse Jaeger 
+ * Die Klasse Jaeger 
  */
 public class Jaeger extends Mensch {
 
@@ -14,7 +13,7 @@ public class Jaeger extends Mensch {
 	 * Instanziiert einen neuen jaeger
 	 *
 	 * @param name der Name
-	 * @throws NameZuKurz
+	 * @throws NameZuKurzException Wenn der name weniger wie 2 zeichen hat
 	 */
 	public Jaeger(String name) throws NameZuKurzException {
 		super(name);

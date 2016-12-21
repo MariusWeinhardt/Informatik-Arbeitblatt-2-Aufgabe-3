@@ -63,7 +63,7 @@ public class Dodo extends Pflanzenfresser {
 	 * Picken action-Methode picken() von Dodo.
 	 *
 	 * @param ziel Das ziel
-	 * @throws AnzahlZuKlein the anzahl zu klein
+	 * @throws AnzahlZuKleinException the anzahl zu klein
 	 */
 	public void picken(Object ziel) throws AnzahlZuKleinException {
 		action(ziel, 0, 0);

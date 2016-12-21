@@ -19,7 +19,7 @@ public class Ressource {
 	 *
 	 * @param name the name
 	 * @param anzahl the anzahl
-	 * @throws AnzahlZuKlein the anzahl zu klein
+	 * @throws AnzahlZuKleinException the anzahl zu klein
 	 */
 	public Ressource(String name, int anzahl)throws AnzahlZuKleinException {
 			this.name=name;
@@ -27,6 +27,24 @@ public class Ressource {
 			this.anzahl=anzahl;
 			else
 				throw new AnzahlZuKleinException();
+	}
+
+	/**
+	 * Gets the name.
+	 *
+	 * @return the name
+	 */
+	String getname() {
+		return name;
+	}
+
+	/**
+	 * Sets the name.
+	 *
+	 * @param name the new name
+	 */
+	void setname(String name) {
+		this.name = name;
 	}
 
 	/* (non-Javadoc)
@@ -52,30 +70,12 @@ public class Ressource {
 	}
 
 	/**
-	 * Gets the name.
-	 *
-	 * @return the name
-	 */
-	String getname() {
-		return name;
-	}
-
-	/**
 	 * Sets the anzahl.
 	 *
 	 * @param anzahl the new anzahl
 	 */
 	public void setanzahl(int anzahl) {
 		this.anzahl = anzahl;
-	}
-
-	/**
-	 * Sets the name.
-	 *
-	 * @param name the new name
-	 */
-	void setname(String name) {
-		this.name = name;
 	}
 	
 	/* (non-Javadoc)

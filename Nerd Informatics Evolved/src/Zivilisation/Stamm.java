@@ -4,11 +4,10 @@ import Dinosaurier.Dinosaurier;
 import Exceptions.AnzahlZuKleinException;
 import Exceptions.ArrayistLeerException;
 import Exceptions.ArrayistVollException;
-// TODO: Auto-generated Javadoc
 import Exceptions.NameZuKurzException;
 
 /**
- * The Class Stamm.
+ * Die Klasse Stamm.
  *
  * @author Marius
  */
@@ -16,26 +15,25 @@ import Exceptions.NameZuKurzException;
 /**
  * Die Klasse Stamm verwaltet Menschen und Dinosaurier und verwaltet außerdem auch noch ressourcen
  * 
- *
  */
 public class Stamm {
 
-	/** The namen. */
+	/** Der namen. */
 	String namen;
 	
-	/** The ressourcen. */
+	/** Die ressourcen. */
 	private Ressource[] ressourcen=new Ressource[10];
-	/** The mitglieder. */
+	/** Die mitglieder. */
 	private Mensch[] mitglieder = new Mensch[10];
 	
-	/** The dinos. */
+	/** Die dinos. */
 	private Dinosaurier[] dinos = new Dinosaurier[10];
 
 	/**
-	 * Instantiates a new stamm.
+	 * Intiiert einen neuen Stamm
 	 *
-	 * @param namen the namen
-	 * @throws NameZuKurz the name zu kurz
+	 * @param namen der namen
+	 * @throws NameZuKurzException wenn der name zu kurz ist weniger wie 2 zeichen hat
 	 */
 	public Stamm(String namen)throws NameZuKurzException {
 		if(namen.length() >=2)
@@ -45,10 +43,31 @@ public class Stamm {
 	}
 	
 	/**
-	 * Aus stamm entlassen.
+	 * Setzt den namen.
 	 *
-	 * @param mensch the mensch
-	 * @throws ArrayistLeer the arrayist leer
+	 * @param namen der neue name
+	 */
+	private void setNamen(String namen) {
+	
+		this.namen = namen;
+	
+	}
+	
+	/**
+	 * gibt den zurück namen.
+	 *
+	 * @return der namen
+	 */
+	public String getNamen() {
+		return namen;
+	}
+	
+	
+	/**
+	 * löscht menschen aus dem mitglieder array und richtet es neu aus
+	 *
+	 * @param mensch der Mensch
+	 * @throws ArrayistLeerException wenn das Array leer ist
 	 */
 		//try catch wenn mensch nicht im array vorkommt
 		public void ausStammEntlassen(Mensch mensch) throws ArrayistLeerException{
@@ -71,33 +90,14 @@ public class Stamm {
 			
 		}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
-	@Override
-	public boolean equals(Object ziel) {
-		if (ziel.getClass() != getClass()) {
-			return false;
-		}
 
-		return true;
 
-	}
-
-/**
- * Gets the namen.
- *
- * @return the namen
- */
-public String getNamen() {
-	return namen;
-}
 
 /**
  * mitglied Hinzufügen fügt in das bergebene objekte in das array ein.
  *
  * @param mensch das übergebende objekt wird in das array mitglieder aufgenommen
- * @throws ArrayistVoll the arrayist voll
+ * @throws ArrayistVollException the arrayist voll
  */
 	public void mitgliedHinzufuegen(Mensch mensch)  throws ArrayistVollException{
 		if (mitglieder[mitglieder.length-1]!=null)
@@ -117,56 +117,12 @@ public String getNamen() {
 		}
 	}
 
-/**
- * Setzt den namen.
- *
- * @param namen der neue name
- */
-private void setNamen(String namen) {
-
-	this.namen = namen;
-
-}
-	@Override
-	public String toString(){
-		String mitglieders="";
-		String dinoss="";
-		String ressourcens="";
-		int zähler=0;
-		
-		while(mitglieder[zähler]!= null){
-			mitglieders=mitglieders+mitglieder[zähler].getName()+" ";
-			zähler++;
-		}
-		
-		 zähler=0;
-		while(dinos[zähler]!= null){
-			dinoss=dinoss+dinos[zähler].getID()+" ";
-			zähler++;
-		}
-		
-		
-		 zähler=0;
-		while(ressourcen[zähler]!= null){
-			ressourcens=ressourcens+ressourcen[zähler].getname()+" "+ressourcen[zähler].getanzahl()+" ";
-			zähler++;
-		}
-		
-		
-		
-		return "Name: "+getNamen()+" Mitglieder: "+mitglieders+" Dinos: "+dinoss+" Ressourcen: "+ressourcens;
-	}
-	
-	
-	
-	
-	
 	/**
-	 * Verwalte ressourcen.
+	 * Verwalte ressourcen fügt dem array ressourcen hinzu.
 	 *
 	 * @param ressource the ressource
 	 * @param anzahl the anzahl
-	 * @throws AnzahlZuKlein the anzahl zu klein
+	 * @throws AnzahlZuKleinException the anzahl zu klein
 	 */
 	public void verwalteRessourcen(Ressource ressource,int anzahl) throws AnzahlZuKleinException{
 	int zähler=0;
@@ -196,11 +152,15 @@ private void setNamen(String namen) {
 	
    }
 	
+	
+	
+	
+	
 	/**
-	 * Verwildern.
+	 * Verwildern löscht dinos aus dem dinos array und richtet es neu aus.
 	 *
-	 * @param dino the dino
-	 * @throws ArrayistLeer the arrayist leer
+	 * @param dino der dino
+	 * @throws ArrayistLeerException die arrayliste ist leer
 	 */
 	//exception wenn dino nicht im array vorkommt
 		public void verwildern(Dinosaurier dino) throws ArrayistLeerException {
@@ -223,10 +183,10 @@ private void setNamen(String namen) {
 		}
 	
 	/**
-	 * Zaehmen.
+	 * Zaehmen fügt dem dinos array einen dino hinzu.
 	 *
-	 * @param dino the dino
-	 * @throws ArrayistVoll the arrayist voll
+	 * @param dino objekt wird dem array hinzugefügt
+	 * @throws ArrayistVollException  wenn das Arrayvollist
 	 */
 	public void zaehmen(Dinosaurier dino) throws ArrayistVollException {
 		
@@ -247,5 +207,55 @@ private void setNamen(String namen) {
 		
 	}
 	
+	
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object ziel) {
+		if (ziel.getClass() != getClass()) {
+			return false;
+		}
+
+		return true;
+
+	}
+
+	
+	
+	
+
+/* (non-Javadoc)
+ * @see java.lang.Object#toString()
+ */
+@Override
+public String toString(){
+	String mitglieders="";
+	String dinoss="";
+	String ressourcens="";
+	int zähler=0;
+	
+	while(mitglieder[zähler]!= null){
+		mitglieders=mitglieders+mitglieder[zähler].getName()+" ";
+		zähler++;
+	}
+	
+	 zähler=0;
+	while(dinos[zähler]!= null){
+		dinoss=dinoss+dinos[zähler].getID()+" ";
+		zähler++;
+	}
+	
+	
+	 zähler=0;
+	while(ressourcen[zähler]!= null){
+		ressourcens=ressourcens+ressourcen[zähler].getname()+" "+ressourcen[zähler].getanzahl()+" ";
+		zähler++;
+	}
+	
+	
+	
+	return "Name: "+getNamen()+" Mitglieder: "+mitglieders+" Dinos: "+dinoss+" Ressourcen: "+ressourcens;
+}
 	
 }
