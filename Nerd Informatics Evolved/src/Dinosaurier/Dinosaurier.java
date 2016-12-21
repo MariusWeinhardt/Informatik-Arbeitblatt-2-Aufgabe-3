@@ -15,7 +15,7 @@ import Zivilisation.Stamm;
 
 /**
  * 
- * Dinosaurier ist eine abstrakte klasse die für die erstellung der objekte der Sub klassen im Packet Herbivoren und Karnivoren veratntwortlich ist
+ * Dinosaurier ist eine abstrakte Klasse die für die erstellung der objekte der Sub klassen im Packet Herbivoren und Karnivoren veratntwortlich ist
  *
  */
 public abstract class Dinosaurier {
