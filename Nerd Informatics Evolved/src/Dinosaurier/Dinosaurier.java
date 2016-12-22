@@ -3,6 +3,7 @@ package Dinosaurier;
 import Exceptions.AndereArtException;
 import Exceptions.AnzahlZuKleinException;
 import Exceptions.GleicherDinosaurierException;
+import Exceptions.GleichesGeschlechtException;
 import Zivilisation.Mensch;
 import Zivilisation.Ressource;
 import Zivilisation.Stamm;
@@ -108,6 +109,16 @@ public abstract class Dinosaurier {
 		this.stamm = stamm;
 	}
 
+	/**
+	 * Die staerke des objektes wird auf den übergebenen wert gesetzt .
+	 *
+	 * @param staerke
+	 *            ist der ubergebene parameter
+	 */
+	protected void setstaerke(int staerke) {
+		this.staerke = staerke;
+	}
+
 	// action handeling für die verschiedenen objekte
 	/**
 	 * action ist dafür verantwortlich die verschiedenen aktionen der
@@ -173,17 +184,10 @@ public abstract class Dinosaurier {
 	 * @throws GleicherDinosaurierException
 	 *             Wenn der partner der gleiche Dinosaurier ist der auch die
 	 *             Methode aufruft wird diese Exception geworfen
+	 * @throws GleichesGeschlechtException
+	 *             Wenn das Geschlecht des Partners und des Aufrufers gleich ist
 	 */
-	protected abstract Dinosaurier paaren(Dinosaurier partner) throws GleicherDinosaurierException, AndereArtException;
-
-	/**
-	 * Die staerke des objektes wird auf den übergebenen wert gesetzt .
-	 *
-	 * @param staerke
-	 *            ist der ubergebene parameter
-	 */
-	protected void setstaerke(int staerke) {
-		this.staerke = staerke;
-	}
+	protected abstract Dinosaurier paaren(Dinosaurier partner)
+			throws GleicherDinosaurierException, AndereArtException, GleichesGeschlechtException;
 
 }

@@ -3,6 +3,7 @@ package Karnivoren;
 import Dinosaurier.Dinosaurier;
 import Exceptions.AndereArtException;
 import Exceptions.GleicherDinosaurierException;
+import Exceptions.GleichesGeschlechtException;
 
 // TODO: Auto-generated Javadoc
 /**
@@ -18,7 +19,9 @@ public class Raptor extends Fleischfresser {
 		setleben(40);
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -32,7 +35,9 @@ public class Raptor extends Fleischfresser {
 
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see Dinosaurier.Dinosaurier#giblaut()
 	 */
 	@Override
@@ -41,25 +46,34 @@ public class Raptor extends Fleischfresser {
 		return "GRRR!";
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see Dinosaurier.Dinosaurier#paaren(Dinosaurier.Dinosaurier)
 	 */
 	@Override
-	public Dinosaurier paaren(Dinosaurier partner) throws GleicherDinosaurierException,AndereArtException {
+	public Dinosaurier paaren(Dinosaurier partner) throws GleicherDinosaurierException, AndereArtException, GleichesGeschlechtException {
 		if (partner.getID() % 2 != getID() % 2 && this.equals(partner)) {
-																		
 
 			return new Raptor();
+		
+			}
+		
+		
+		if (partner.getID() % 2 == getID() % 2) {
+			throw new GleichesGeschlechtException();
 		}
-			if(partner.getID()==getID()){
-				throw new GleicherDinosaurierException();
-			}
-			else{
-				throw new AndereArtException();
-			}
+		
+		if (partner.getID() == getID()) {
+			throw new GleicherDinosaurierException();
+		} else {
+			throw new AndereArtException();
+		}
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
