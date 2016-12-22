@@ -3,9 +3,10 @@ package Herbivoren;
 import Dinosaurier.Dinosaurier;
 import Exceptions.AndereArtException;
 import Exceptions.GleicherDinosaurierException;
+import Exceptions.GleichesGeschlechtException;
 
 /**
- * Die Klasse  Bronto.
+ * Die Klasse Bronto.
  *
  * @author Marius
  */
@@ -20,8 +21,9 @@ public class Bronto extends Pflanzenfresser {
 		setleben(130);
 	}
 
-	
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -34,7 +36,9 @@ public class Bronto extends Pflanzenfresser {
 
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see Dinosaurier.Dinosaurier#giblaut()
 	 */
 	@Override
@@ -42,24 +46,32 @@ public class Bronto extends Pflanzenfresser {
 		return "Duuuh…";
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see Dinosaurier.Dinosaurier#paaren(Dinosaurier.Dinosaurier)
 	 */
 	@Override
-	public Dinosaurier paaren(Dinosaurier partner) throws GleicherDinosaurierException,AndereArtException {
-		if (partner.getID() % 2 != getID() % 2 && (this.equals(partner))){ 
+	public Dinosaurier paaren(Dinosaurier partner) throws GleicherDinosaurierException, AndereArtException, GleichesGeschlechtException {
+		if (partner.getID() % 2 != getID() % 2 && (this.equals(partner))) {
 			return new Bronto();
 		}
-		if(partner.getID()==getID()){
-			throw new GleicherDinosaurierException();
+		
+		
+		if (partner.getID() % 2 == getID() % 2) {
+			throw new GleichesGeschlechtException();
 		}
-		else{
+		
+		if (partner.getID() == getID()) {
+			throw new GleicherDinosaurierException();
+		} else {
 			throw new AndereArtException();
 		}
 	}
-	
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override

@@ -3,10 +3,10 @@ package Herbivoren;
 import Dinosaurier.Dinosaurier;
 import Exceptions.AndereArtException;
 import Exceptions.GleicherDinosaurierException;
+import Exceptions.GleichesGeschlechtException;
 
-// TODO: Auto-generated Javadoc
 /**
- * The Class Triceratops.
+ * The Klasse Triceratops.
  */
 public class Triceratops extends Pflanzenfresser {
 
@@ -18,7 +18,9 @@ public class Triceratops extends Pflanzenfresser {
 		setleben(60);
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -32,7 +34,9 @@ public class Triceratops extends Pflanzenfresser {
 
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see Dinosaurier.Dinosaurier#giblaut()
 	 */
 	@Override
@@ -40,25 +44,32 @@ public class Triceratops extends Pflanzenfresser {
 		return "Roooow…";
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see Dinosaurier.Dinosaurier#paaren(Dinosaurier.Dinosaurier)
 	 */
 	@Override
-	public Dinosaurier paaren(Dinosaurier partner) throws GleicherDinosaurierException,AndereArtException{
+	public Dinosaurier paaren(Dinosaurier partner) throws GleicherDinosaurierException, AndereArtException, GleichesGeschlechtException {
 		if (partner.getID() % 2 != getID() % 2 && this.equals(partner)) {
-																		
 
 			return new Triceratops();
 		}
-			if(partner.getID()==getID()){
-				throw new GleicherDinosaurierException();
-			}
-			else{
-				throw new AndereArtException();
-			}
+		
+		if (partner.getID() % 2 == getID() % 2) {
+			throw new GleichesGeschlechtException();
+		}
+		
+		if (partner.getID() == getID()) {
+			throw new GleicherDinosaurierException();
+		} else {
+			throw new AndereArtException();
+		}
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override

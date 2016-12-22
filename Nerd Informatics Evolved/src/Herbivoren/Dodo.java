@@ -4,9 +4,10 @@ import Dinosaurier.Dinosaurier;
 import Exceptions.AndereArtException;
 import Exceptions.AnzahlZuKleinException;
 import Exceptions.GleicherDinosaurierException;
+import Exceptions.GleichesGeschlechtException;
 
 /**
- *Die Klasse Dodo.
+ * Die Klasse Dodo.
  */
 public class Dodo extends Pflanzenfresser {
 
@@ -18,7 +19,9 @@ public class Dodo extends Pflanzenfresser {
 		setleben(10);
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -31,7 +34,9 @@ public class Dodo extends Pflanzenfresser {
 
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see Dinosaurier.Dinosaurier#giblaut()
 	 */
 	@Override
@@ -40,36 +45,46 @@ public class Dodo extends Pflanzenfresser {
 		return "Gurrgurr";
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see Dinosaurier.Dinosaurier#paaren(Dinosaurier.Dinosaurier)
 	 */
 	@Override
-	public Dinosaurier paaren(Dinosaurier partner) throws GleicherDinosaurierException,AndereArtException {
+	public Dinosaurier paaren(Dinosaurier partner) throws GleicherDinosaurierException, AndereArtException, GleichesGeschlechtException {
 		// abfrage partner haben anderes geschlecht und gleicher art
 		if (partner.getID() % 2 != getID() % 2 && this.equals(partner)) {
 
 			return new Dodo();
 		}
-			if(partner.getID()==getID()){
-				throw new GleicherDinosaurierException();
-			}
-			else{
-				throw new AndereArtException();
-			}
+		
+		if (partner.getID() % 2 == getID() % 2) {
+			throw new GleichesGeschlechtException();
+		}
+		
+		if (partner.getID() == getID()) {
+			throw new GleicherDinosaurierException();
+		} else {
+			throw new AndereArtException();
+		}
 
 	}
 
 	/**
 	 * Picken action-Methode picken() von Dodo.
 	 *
-	 * @param ziel Das ziel
-	 * @throws AnzahlZuKlein the anzahl zu klein
+	 * @param ziel
+	 *            Das ziel
+	 * @throws AnzahlZuKleinException
+	 *             the anzahl zu klein
 	 */
 	public void picken(Object ziel) throws AnzahlZuKleinException {
 		action(ziel, 0, 0);
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override

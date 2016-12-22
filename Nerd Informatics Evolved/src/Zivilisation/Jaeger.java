@@ -4,17 +4,18 @@ import Dinosaurier.Dinosaurier;
 import Exceptions.NameZuKurzException;
 import Karnivoren.Fleischfresser;
 
-// TODO: Auto-generated Javadoc
 /**
- * TDie Klasse Jaeger 
+ * Die Klasse Jaeger
  */
 public class Jaeger extends Mensch {
 
 	/**
 	 * Instanziiert einen neuen jaeger
 	 *
-	 * @param name der Name
-	 * @throws NameZuKurz
+	 * @param name
+	 *            der Name
+	 * @throws NameZuKurzException
+	 *             Wenn der name weniger wie 2 zeichen hat
 	 */
 	public Jaeger(String name) throws NameZuKurzException {
 		super(name);
@@ -22,7 +23,9 @@ public class Jaeger extends Mensch {
 		setAlter(20);
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
@@ -35,27 +38,37 @@ public class Jaeger extends Mensch {
 
 	}
 
-	/* (non-Javadoc)
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see Zivilisation.Mensch#reiten(Dinosaurier.Dinosaurier)
 	 */
 	@Override
 	public void reiten(Dinosaurier dino) {
-		if(dino instanceof Fleischfresser){
+		if (dino instanceof Fleischfresser) {
 			setReittier(dino);
-			//test
-			//System.out.println("Reitet "+getReittier());
-		}
-		else{
-			//test
-			//System.out.println("Nicht möglich");
+			// test
+			// System.out.println("Reitet "+getReittier());
+		} else {
+			// test
+			// System.out.println("Nicht möglich");
 		}
 	}
-	
-	/* (non-Javadoc)
+
+	/*
+	 * (non-Javadoc)
+	 * 
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
-	public String toString(){
-		return "Name: "+getName()+" Leben: "+getleben()+" Alter: "+getAlter()+" Stamm: "+getStamm().getNamen()+" Reittier: "+getReittier().getClass()+" "+getReittier();
+	public String toString() {
+		String stamms = "";
+
+		stamms = "Name: " + getName() + " Leben: " + getleben() + " Alter: " + getAlter();
+		if (getStamm() != null)
+			stamms = stamms + " Stamm: " + getStamm().getNamen();
+		stamms = stamms + " Reittier: " + getReittier().getClass() + " " + getReittier();
+
+		return stamms;
 	}
 }

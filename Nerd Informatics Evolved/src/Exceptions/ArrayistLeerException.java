@@ -1,15 +1,15 @@
 package Exceptions;
 
-// TODO: Auto-generated Javadoc
 /**
- * Die Klasse ArrayistLeer.
+ * Die Klasse ArrayistLeerException. wird nur aufgerufen wenn ein Array leer ist
+ * und man versucht etwas herauszulöschen
  */
-public class ArrayistLeerException extends Exception{
-	
+public class ArrayistLeerException extends Exception {
+
 	/**
 	 * Instanziert eine neue Exception
 	 */
-	public ArrayistLeerException(){
+	public ArrayistLeerException() {
 		super("Das Array enthält keine Elemente");
 	}
 }

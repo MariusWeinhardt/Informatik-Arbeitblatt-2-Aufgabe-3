@@ -1,14 +1,15 @@
 package Exceptions;
 
 /**
- * Die Klasse NameZuKurzException.
+ * Die Klasse NameZuKurzException. wird aufgerufen wenn ein name kürzer wie 2
+ * zeichen ist.
  */
-public class NameZuKurzException extends Exception{
+public class NameZuKurzException extends Exception {
 
-/**
- * Instanziert eine neue Exception.
- */
-public NameZuKurzException(){
+	/**
+	 * Instanziert eine neue Exception.
+	 */
+	public NameZuKurzException() {
 		super("Der Name enthält weniger als 2 Zeichen !");
 	}
 }
