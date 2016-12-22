@@ -1,7 +1,7 @@
 package Exceptions;
 
 /**
- * Die Klasse AnzahlZuKleinException. Die Exception wird nur geworfen wenn eine
+ * Die Klasse AnzahlZuKleinException Die Exception wird nur geworfen wenn eine
  * Anzahl kleiner oder gleich 0 ist
  */
 public class AnzahlZuKleinException extends Exception {

@@ -6,7 +6,7 @@ import Exceptions.GleicherDinosaurierException;
 import Exceptions.GleichesGeschlechtException;
 
 /**
- * Die Klasse Bronto.
+ * Die Klasse Bronto verwaltet objekte dieser Klasse.
  *
  * @author Marius
  */

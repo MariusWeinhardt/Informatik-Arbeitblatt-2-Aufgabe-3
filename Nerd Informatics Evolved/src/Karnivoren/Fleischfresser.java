@@ -4,7 +4,7 @@ import Dinosaurier.Dinosaurier;
 import Exceptions.AnzahlZuKleinException;
 
 /**
- * Die Klasse Fleischfresser.
+ * Die Klasse Fleischfresser verwaltet die angreifen Methode aller anderen Klassen im Packet Karnivoren.
  */
 public abstract class Fleischfresser extends Dinosaurier {
 

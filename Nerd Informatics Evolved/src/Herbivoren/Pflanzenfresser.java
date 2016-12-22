@@ -4,7 +4,7 @@ import Dinosaurier.Dinosaurier;
 import Exceptions.AnzahlZuKleinException;
 
 /**
- * Die Klasse Pflanzenfresser.
+ * Die Klasse Pflanzenfresser verwaltet die stossen Methode aller anderen Klassen im Packet Herbivoren.
  */
 public abstract class Pflanzenfresser extends Dinosaurier {
 

@@ -6,7 +6,7 @@ import Exceptions.GleicherDinosaurierException;
 import Exceptions.GleichesGeschlechtException;
 
 /**
- * Die Klasse Rex.
+ * Die Klasse Rex verwaltet objekte dieser Klasse.
  *
  * @author Marius
  */
