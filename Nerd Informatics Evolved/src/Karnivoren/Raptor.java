@@ -7,7 +7,7 @@ import Exceptions.GleichesGeschlechtException;
 
 // TODO: Auto-generated Javadoc
 /**
- * Die Klasse Raptor
+ * Die Klasse Raptor verwaltet objekte dieser Klasse
  */
 public class Raptor extends Fleischfresser {
 

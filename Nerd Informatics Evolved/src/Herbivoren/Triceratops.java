@@ -6,7 +6,7 @@ import Exceptions.GleicherDinosaurierException;
 import Exceptions.GleichesGeschlechtException;
 
 /**
- * The Klasse Triceratops.
+ * The Klasse Triceratops verwaltet objekte dieser Klasse.
  */
 public class Triceratops extends Pflanzenfresser {
 

@@ -7,7 +7,7 @@ import Exceptions.GleicherDinosaurierException;
 import Exceptions.GleichesGeschlechtException;
 
 /**
- * Die Klasse Dodo.
+ * Die Klasse Dodo verwaltet objekte dieser Klasse.
  */
 public class Dodo extends Pflanzenfresser {
 
